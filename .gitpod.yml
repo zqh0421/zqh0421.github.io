@@ -5,4 +5,4 @@ tasks:
 - before: >
     export DEV_HOST=$(gp url 5678)
   init: npm install
-  command: npm start
+  command: npm run dev
