@@ -3,9 +3,10 @@ import './Home.css'
 const Home = () => {
   return (
     <div className="home">
+      <img width='60%' src='../../src/assets/64203b025157e371fc6f2d8f4760258.jpg'/>
       <h3>About Me</h3>
       <p>
-        I am currently an undergraduate student expected to graduate in June 2024. I am majoring in Computer Science and Technology in Beijing University of Chemical Technology.
+        I am Qianhui Zhao (赵千慧), currently an undergraduate student expected to graduate in June 2024. I am majoring in Computer Science and Technology in Beijing University of Chemical Technology.
         My research interests include human-computer interaction (HCI), user interface development and AI application.
       </p>
       <h3>Education</h3>

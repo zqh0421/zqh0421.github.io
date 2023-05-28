@@ -3,6 +3,8 @@ import { InstagramWithCircle } from '@styled-icons/entypo-social/InstagramWithCi
 import { LinkedinWithCircle } from '@styled-icons/entypo-social/LinkedinWithCircle'
 import { Github } from '@styled-icons/bootstrap/Github'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { useState } from 'react'
 import './Footer.css'
 
 const InstagramWithCircleIcon = styled(InstagramWithCircle)`
@@ -26,16 +28,40 @@ const EmailOutlineIcon = styled(EmailOutline)`
 `
 
 const Footer = () => {
+  const emailAddress = 'zqh0421@hotmail.com'
+  const [btnStatus, setBtnStatus] = useState({
+    disabled: false,
+    text: 'copy'
+  })
+  
   return (
     <div className="footer-wrapper">
       <div className="footer">
         <div className='divider' />
         <h2>Contact me!</h2>
-        <p className='email'><EmailOutlineIcon /><span className='address'>zqh0421@hotmail.com</span></p>
+        <p className='email'>
+          <a href="mailto: zqh0421@hotmail.com"><EmailOutlineIcon /></a>
+          <span className='address'>{emailAddress}</span>
+          <CopyToClipboard text={emailAddress}
+              onCopy={() => {
+                setBtnStatus({
+                  disabled: true,
+                  text: 'success!'
+                })
+                setTimeout(() => {
+                  setBtnStatus({
+                    disabled: false,
+                    text: 'copy'
+                  })
+                }, 3000)
+              }}>
+              <button disabled={btnStatus.disabled}>{btnStatus.text}</button>
+          </CopyToClipboard>
+        </p>
         <p className='icons'>
-          <GithubIcon />
-          <LinkedinWithCircleIcon />
-          <InstagramWithCircleIcon />
+          <a href='http://github.com/zqh0421'><GithubIcon /></a>
+          {/* <LinkedinWithCircleIcon />
+          <InstagramWithCircleIcon /> */}
         </p>
         <p className='copyright'>Copyright © Qianhui Zhao 2023</p>
       </div>

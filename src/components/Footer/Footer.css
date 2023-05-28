@@ -32,13 +32,15 @@
 
 .footer .email .address {
   font-size: 14px;
+  margin: 0 10px;
 }
 
 .footer .icons {
-  display: flex;
+  /* display: flex; */
   margin: 20px auto;
-  width: 120px;
-  justify-content: space-between;
+  /* width: 120px; */
+  /* justify-content: space-between; */
+  align-items: center;
 }
 
 .footer .copyright {
