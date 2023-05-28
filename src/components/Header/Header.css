@@ -1,0 +1,32 @@
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  height: 60px;
+  margin: 0 auto;
+  line-height: 60px;
+}
+
+.header .left {
+
+}
+
+.header .right {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.header .right li {
+  padding-left: 30px;
+}
