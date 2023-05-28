@@ -3,7 +3,7 @@ import './Home.css'
 const Home = () => {
   return (
     <div className="home">
-      <h3>About</h3>
+      <h3>About Me</h3>
       <p>
         I am currently an undergraduate student expected to graduate in June 2024. I am majoring in Computer Science and Technology in Beijing University of Chemical Technology.
         My research interests include human-computer interaction (HCI), user interface development and AI application.
