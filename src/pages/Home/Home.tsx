@@ -64,7 +64,7 @@ const Home = () => {
           <h5>Romote Research Assistant</h5>
           <h5>Feb 2023 - Mar 2023</h5>
         </div>
-        <h6><b>The Next Generation of Dictation Text Composition Interface</b></h6>
+        <h6><b>AI-Powered Dictation Summarization Interface</b></h6>
         <ul className='content listIndent'>
           <li>A web application that displays transcripts and corresponding summaries utilizing GPT-3.5/4 and Google Speech-to-Text APIs.</li>
           <li><a target='_blank' href="#">Demo</a> | <a target='_blank' href="#">Portfolio</a> | <a target='_blank' href='#'>Code</a></li>
