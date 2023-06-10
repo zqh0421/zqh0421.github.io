@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <div className="header-wrapper">
+      <div className="filter"></div>
       <div className="header">
         <div className="left"><Link to='/'>Qianhui Zhao (赵千慧)</Link></div>
         <ul className="right">
