@@ -3,9 +3,9 @@ import { InstagramWithCircle } from '@styled-icons/entypo-social/InstagramWithCi
 import { LinkedinWithCircle } from '@styled-icons/entypo-social/LinkedinWithCircle'
 import { Github } from '@styled-icons/bootstrap/Github'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+// import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState } from 'react'
-import './Footer.css'
+import './Footer.scss'
 
 const InstagramWithCircleIcon = styled(InstagramWithCircle)`
   color: #ccc;
@@ -39,26 +39,8 @@ const Footer = () => {
       <div className="footer">
         <div className='divider' />
         <h2>Contact me!</h2>
-        <p className='email'>
-          <a href="mailto: zqh0421@hotmail.com"><EmailOutlineIcon /></a>
-          <span className='address'>{emailAddress}</span>
-          <CopyToClipboard text={emailAddress}
-              onCopy={() => {
-                setBtnStatus({
-                  disabled: true,
-                  text: 'success!'
-                })
-                setTimeout(() => {
-                  setBtnStatus({
-                    disabled: false,
-                    text: 'copy'
-                  })
-                }, 3000)
-              }}>
-              <button disabled={btnStatus.disabled}>{btnStatus.text}</button>
-          </CopyToClipboard>
-        </p>
         <p className='icons'>
+          <a href="mailto: zqh0421@hotmail.com"><EmailOutlineIcon /></a>
           <a href='http://github.com/zqh0421'><GithubIcon /></a>
           {/* <LinkedinWithCircleIcon />
           <InstagramWithCircleIcon /> */}
