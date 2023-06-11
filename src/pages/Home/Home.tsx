@@ -109,19 +109,19 @@ const Home = () => {
           <h6>2019, 2020, 2022</h6>
         </li>
         <li className='multiCol'>
-          <h6>1st Class of the People's Scholarship</h6>
+          <h6>First Class of the People's Scholarship</h6>
           <h6>2022</h6>
         </li>
         <li className='multiCol'>
-          <h6>1st Prize in Lanqiao Cup C/C++ Programming Competition (Beijing)</h6>
+          <h6>First Prize in Lanqiao Cup C/C++ Programming Competition (Beijing)</h6>
           <h6>2022</h6>
         </li>
         <li className='multiCol'>
-          <h6>1st Class of the People's Scholarship</h6>
+          <h6>Third Prize in China University Student Internet+ Innovation and Entrepreneurship Competition (Beijing)</h6>
           <h6>2022</h6>
         </li>
         <li className='multiCol'>
-          <h6>1st Prize in National English Compotition for College Students</h6>
+          <h6>First Prize in National English Compotition for College Students</h6>
           <h6>2021</h6>
         </li>
         <li className='multiCol'>
