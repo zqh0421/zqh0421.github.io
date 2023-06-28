@@ -11,10 +11,12 @@ const Home = () => {
           <h2>Hi there! I'm Qianhui,</h2>
           <p>a front-end developer and HCI researcher currently based in Beijing, China.</p>
           <p><b>I'm looking for on-site work opportunities during Sep 2023 - Jun 2024! <Link to='Contact'>More...</Link></b></p>
-          <p>(Updated on Jun 10 2023.)</p>
+          <p>(Updated on Jun 29 2023.)</p>
         </div>
         <img src={photo} />
       </div>
+      <h3>Research Interests</h3>
+      <p>Human-Computer Interaction, Front-End Development, Intelligent User Interface, User Experience, AI Application</p>
       <h3>Education</h3>
       <div className='block'>
         <div className='multiCol'>
@@ -37,7 +39,7 @@ const Home = () => {
           <h5>Dec 2021 - Oct 2022</h5>
         </div>
         <ul className='content'>
-          <li>Main Courses: Machine Learning, Deep Learning, NLP. Algorithms</li>
+          <li>Main Courses: Machine Learning, Deep Learning, Natural Language Processing, Algorithms</li>
         </ul>
       </div>
       <h3>Research Experience</h3>
@@ -67,7 +69,8 @@ const Home = () => {
         <h6><b>AI-Powered Dictation Summarization Interface</b></h6>
         <ul className='content listIndent'>
           <li>A web application that displays transcripts and corresponding summaries utilizing GPT-3.5/4 and Google Speech-to-Text APIs.</li>
-          <li><a target='_blank' href="#">Demo</a> | <a target='_blank' href="#">Portfolio</a> | <a target='_blank' href='#'>Code</a></li>
+          <li>Keywords: Speech-to-Text, Dictation Composition, Intelligent User Interface</li>
+          <li><span>(Sorry, temporarily unavailable...😢)</span><a href="#">Demo</a> | <a href="#">Portfolio</a> | <a href='#'>Code</a></li>
         </ul>
       </div>
       <div className='block'>
@@ -82,7 +85,8 @@ const Home = () => {
         <h6><b>Applying ChatGPT/OpenAI to Suggest Code Performance Optimization</b></h6>
         <ul className='content listIndent'>
           <li>A web application that helps users optimize their code performance by interacting with GPT-3.5/4.</li>
-          <li><a target='_blank' href="http://zqh0421.github.io/codegpt">Demo</a> | <a target='_blank' href="http://zqh0421.github.io/codegpt">Poster</a> | <a target='_blank' href='https://github.com/zqh0421/codegpt'>Code</a></li>
+          <li>Keywords: React.js, TS, Express.js, GPT, GitHub, AWS, Nginx, LSP (Language Server Protocol), gopls</li>
+          <li><a target='_blank' href="http://zqh0421.github.io/codegpt">Demo</a> | <a target='_blank' href="https://drive.google.com/file/d/1qF_V6sKxoIy7Z_MG5Z5lBHq9UEgU_Rle/view?usp=share_link">Poster</a> | <a target='_blank' href='https://github.com/zqh0421/codegpt'>Code</a></li>
         </ul>
       </div>
       <h3>Industrial Experience</h3>
@@ -95,6 +99,12 @@ const Home = () => {
           <h5>Frontend Developer</h5>
           <h5>Dec 2022 - Mar 2023</h5>
         </div>
+        <ul className='content listIndent'>
+          <li>Developed H5 pages of Qingdao Metro app and Lcago app.</li>
+          <li>Participated in technological upgrades and migration of frontend frameworks.</li>
+          <li>Collaborated with team members, including my mentors and other developers, UI designers and product managers.</li>
+          <li>Keywords: Vue.js, Flutter, Gulp</li>
+        </ul>
       </div>
       <h3>Projects</h3>
       <p>Click <Link to='projects'>here</Link> to see my projects.</p>
@@ -129,6 +139,14 @@ const Home = () => {
           <h6>2020</h6>
         </li>
       </ul>
+      <h3>Skills</h3>
+      <ul>
+        <li>Programming Languages: C/C++, Python, Java, JavaScript, TypeScript, HTML, CSS/SCSS, SQL</li>
+        <li>Frameworks: React, React Native, Vue, Express, Flask</li>
+        <li>Tools: MySQL, Android Studio, XCode, Aliyun, AWS, Figma, Final Cut Pro, Logic Pro, Adobe Audition</li>
+        <li>Languages: Mandarin - Native, English - Fluent</li>
+        <li>Standardized Scores: TOEFL - 109(S23), GRE - V156+Q170+AW4.0</li>
+      </ul>
       <h3>Extracurricular Activities</h3>
       <div className='block'>
         <div className='multiCol'>
@@ -139,9 +157,6 @@ const Home = () => {
           <h5>Peer Tutor</h5>
           <h5>Oct 2021 - Present</h5>
         </div>
-        <ul className='content'>
-        <li>Provided one-on-one or group tutoring after class for students who encounter difficultie in programming, learning English and other compulsory courses.</li>
-        </ul>
       </div>
       <div className='block'>
         <div className='multiCol'>
@@ -152,9 +167,6 @@ const Home = () => {
           <h5>Head of Arts and Sport Department</h5>
           <h5>Oct 2020 - Oct 2021</h5>
         </div>
-        <ul className='content'>
-          <li></li>
-        </ul>
       </div>
       <div className='block'>
         <div className='multiCol'>
@@ -165,9 +177,6 @@ const Home = () => {
           <h5>Member of Arts Department</h5>
           <h5>Oct 2019 - Oct 2020</h5>
         </div>
-        <ul className='content'>
-          <li></li>
-        </ul>
       </div>
       <div className='block'>
         <div className='multiCol'>
@@ -178,26 +187,8 @@ const Home = () => {
           <h5>Peer Tutor</h5>
           <h5>Oct 2019 - Oct 2021</h5>
         </div>
-        <ul className='content'>
-          <li>Provided one-on-one or group tutoring after class for students who encounter difficultie in learning Mathematics, English and Chemstry.</li>
-        </ul>
       </div>
       <p><h4>More info: <Link to='misc'>Misc</Link></h4></p>
-      <h3>Skills</h3>
-      <ul>
-        <li>Programming: C/C++, Python, Java, Aliyun, JavaScript, TypeScript, HTML, CSS, React, React Native, Node, Express</li>
-        <li>Tools: Android Studio, Figma, Jetbrain Toolbox</li>
-        <li>Language:
-          <ul className='listIndent'>
-            <li>Mandarin: Native</li>
-            <li>English: Fluent</li>
-            <li>Japanese & Korean: Elementary</li>
-            <li>Standardized Score: TOEFL 109 (Best Score until Apr 2023), GRE V156+Q170+AW4.0</li>
-          </ul>
-        </li>
-      </ul>
-      <h3>Research Interests</h3>
-      <p>Human-Computer Interaction, Front-End Development, Intelligent User Interface, User Experience, AI Application</p>
     </div>
   )
 }

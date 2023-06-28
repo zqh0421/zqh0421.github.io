@@ -43,6 +43,12 @@
         padding-left: 30px;
       }
     }
+    .collapsedList {
+      display: none;
+    }
+    #isCollapsed {
+      display: none;
+    }
   }
 }
 
@@ -54,6 +60,9 @@
       }
       &.collapsed {
         display: flex;
+      }
+      #isCollapsed:checked + .collapsedList {
+        display: block;
       }
     }
   }
