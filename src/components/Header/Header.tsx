@@ -9,19 +9,17 @@ const Header = () => {
         <div className="left"><Link to='/'>Qianhui Zhao</Link></div>
         <ul className="right all">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><a href="#" target='_blank'>CV</a></li>
+          <li><Link to="/vitae">CV</Link></li>
           <li><Link to="/misc">Misc</Link></li>
-          <li><Link to='contact'>Contact</Link></li>
+          {/* <li><Link to='/contact'>Contact</Link></li> */}
         </ul>
         <label className="right collapsed">...</label>
         <input type="checkbox" id="isCollapsed"/>
         <ul className="collapsedList">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><a href="#" target='_blank'>CV</a></li>
+          <li><Link to="/vitae">CV</Link></li>
           <li><Link to="/misc">Misc</Link></li>
-          <li><Link to='contact'>Contact</Link></li>
+          {/* <li><Link to='contact'>Contact</Link></li> */}
         </ul>
       </div>
     </div>

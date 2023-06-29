@@ -1,26 +1,20 @@
 [
   {
-    "title": "Markov Bot",
-    "desc": "Coursework",
-    "info": "Quite immature though... this is the 1ST project that I've finished after I transferred to CS and the video's got 15k views on Bilibili!",
-    "goto": "https://www.bilibili.com/video/BV1LF411q7TP/",
-    "time": "Dec 2021",
-    "pic": ""
-  },
-  {
-    "title": "Covid Tracker",
-    "desc": "Coursework"
-  },
-  {
-    "title": "Find Shortest Path",
-    "desc": "Course Project"
-  },
-  {
     "title": "MuseumX",
-    "desc": "Course Project"
+    "desc": "Course Project",
+    "to": "/museumx",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
-    "title": "Dialog-to-Summarization",
-    "desc": "Project"
+    "title": "DialogX",
+    "desc": "AI-powered Dialog-to-Summarization",
+    "to": "/dialogx",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+  },
+  {
+    "title": "CodeGPT",
+    "desc": "AI-powered",
+    "to": "/codegpt",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   }
 ]

@@ -6,8 +6,10 @@ const Projects = () => {
     <div>
       <div className='cardList'>{
         projectData.map(item => <Card
-          title={'title'}
-          desc={'desc'}
+          title={item.title}
+          desc={item.desc}
+          to={item.to}
+          preview={item.preview}
         />)
       }</div>
     </div>

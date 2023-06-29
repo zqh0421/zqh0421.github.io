@@ -8,8 +8,7 @@ const Misc = () => {
         <ul className='content listIndent'>
           <li>Work harder and harder for my summer research project</li>
           <li>Work on my portfolios</li>
-          <li>Check the list of programs that I am eager to apply</li>
-          <li><span>(Sorry, temporarily unavailable...😢)</span><a href="#">Demo</a> | <a href="#">Portfolio</a> | <a href='#'>Code</a></li>
+          <li>Find an internship</li>
         </ul>
       </div>
       <h3>All about Music&Art</h3>
