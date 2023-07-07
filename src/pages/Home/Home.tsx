@@ -10,9 +10,9 @@ const Home = () => {
         <h2>Hi there! I'm Qianhui,</h2>
         <div className='sub-preface'>
           <div className='content'>
-            <p>a front-end developer and HCI researcher currently based in Beijing, China.</p>
-            <p><b>I'm looking for on-site work opportunities during Sep 2023 - Jun 2024! <Link to='Contact'>More...</Link></b></p>
-            <p>(Updated on Jun 29 2023.)</p>
+            <p>a front-end developer and HCI researcher currently based in Notre Dame, the US.</p>
+            <p><b>I'm looking for full-time work opportunities during Sep 2023 - Jun 2024! <Link to='Contact'>More...</Link></b></p>
+            <p>(Updated on Jul 7 2023.)</p>
           </div>
           <img src={photo} />
         </div>
