@@ -7,7 +7,7 @@ const Home = () => {
     <div className="max-w-[80vw] mx-auto my-0">
       <div className='preface flex min-h-fit h-[calc(100vh-96px)] items-center justify-center flex-col-reverse lg:flex-row'>
         <div className='h-min text-left'>
-          <h2 className="h2">Hi there! I'm Qianhui,</h2>
+          <h2 className="h2">Hi, there! I'm Qianhui,</h2>
             <div className='[&>p]:my-4 [&>p]:text-2xl [&>p]:leading-8'>
               <p>a front-end developer and HCI researcher currently based in <span className='text-2xl text-[#143865]'>Notre Dame, the US.</span></p>
               <p>I'm looking for full-time work opportunities during Sep 2023 - Jun 2024!</p>

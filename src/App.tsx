@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import './assets/styles/App.scss'
+// import './assets/styles/App.scss'
 import Header from './components/Header'
 import Home from './pages/Home'
 import CV from './pages/CV'
@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App min-h-screen text-neutral-900 bg-base-100">
+    <div className="App min-h-screen bg-primary-color text-secondary-color">
       <Header />
       <div className='content-wrapper flex flex-col justify-between min-h-[calc(100vh-141px)] pt-15' >
         <Routes>
