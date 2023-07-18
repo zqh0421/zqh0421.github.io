@@ -14,7 +14,7 @@ const Home = () => {
               <DownloadCV />
           </div>
         </div>
-        <img className="self-center w-[calc(max(30vw,96px))] p-0 shadow-lg shadow-neutral-400 rounded-br-[50%] rounded-tl-[50%] my-10 mx-0 lg:ml-5 " src={photo} />
+        <img className="self-center w-[calc(max(30vw,280px))] p-0 shadow-lg shadow-neutral-400 rounded-br-[50%] rounded-tl-[50%] my-10 mx-0 lg:ml-5 " src={photo} />
       </div>
       <div className='mx-auto w-[80vw] h-px bg-base-200' />
       <div className='text-left'>
