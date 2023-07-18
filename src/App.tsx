@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App min-h-screen bg-base-100 text-neutral-800">
+    <div className="App min-h-screen bg-base-100 text-base-content">
       <Header />
       <div className='content-wrapper flex flex-col justify-between min-h-[calc(100vh-141px)] pt-15' >
         <Routes>
