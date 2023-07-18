@@ -1,8 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url(./fonts.scss);
 @import url(./text.scss);
 
 :root {
-  font-family: Aleo, "Source Serif Pro", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", Times, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: OpenSans, serif;
   line-height: 1.5;
   font-weight: 400;
 

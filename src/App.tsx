@@ -1,19 +1,18 @@
 import { Routes, Route } from 'react-router-dom'
 import './assets/styles/App.scss'
-import Header from './components/Header/Header'
-import Home from './pages/Home/Home'
-import CV from './pages/CV/CV'
-import Projects from './pages/Projects/Projects'
-import Misc from './pages/Misc/Misc'
-import Contact from './pages/Contact/Contact'
-import MuseumX from './pages/MuseumX/MuseumX'
-import Footer from './components/Footer/Footer'
+import Header from './components/Header'
+import Home from './pages/Home'
+import CV from './pages/CV'
+import Misc from './pages/Misc'
+import Contact from './pages/Contact'
+import MuseumX from './pages/MuseumX'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-screen text-neutral-900 bg-base-100">
       <Header />
-      <div className='content-wrapper' >
+      <div className='content-wrapper flex flex-col justify-between min-h-[calc(100vh-141px)] pt-15' >
         <Routes>
         <Route path='/' Component={Home} />
           <Route path='/misc' Component={Misc} />

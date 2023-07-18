@@ -5,7 +5,6 @@ import { Github } from '@styled-icons/bootstrap/Github'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useState } from 'react'
-import './Footer.scss'
 
 const InstagramWithCircleIcon = styled(InstagramWithCircle)`
   color: #ccc;
@@ -28,24 +27,19 @@ const EmailOutlineIcon = styled(EmailOutline)`
 `
 
 const Footer = () => {
-  const emailAddress = 'zqh0421@hotmail.com'
-  const [btnStatus, setBtnStatus] = useState({
-    disabled: false,
-    text: 'copy'
-  })
   
   return (
-    <div className="footer-wrapper">
-      <div className="footer">
-        <div className='divider' />
-        <h2>Contact me!</h2>
-        <p className='icons'>
-          <a href="mailto: zqh0421@hotmail.com"><EmailOutlineIcon /></a>
+    <div className="w-full h-min items-center">
+      <div className="mt-[120px] mb-[30px] items-center">
+        <div className="mx-auto my-[50px] w-[80vw] h-px bg-base-200" />
+        <h2 className='h2 mb-[20px]'>Contact me!</h2>
+        <p className='m-[20px] items-center'>
+          <a className="inline-block m-[20px]" href="mailto: zqh0421@hotmail.com"><EmailOutlineIcon /></a>
           <a href='http://github.com/zqh0421'><GithubIcon /></a>
           {/* <LinkedinWithCircleIcon />
           <InstagramWithCircleIcon /> */}
         </p>
-        <p className='copyright'>Copyright © Qianhui Zhao 2023</p>
+        <p className="text-neutral-300">Copyright © Qianhui Zhao 2023</p>
       </div>
     </div>
   )

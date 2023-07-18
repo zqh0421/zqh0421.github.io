@@ -1,37 +1,37 @@
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-h2 {
-  font-size: 2.8em;
+h2.h2 {
+  font-family: Merriweather, sans-serif;
+  font-size: 2.4rem;
   line-height: 1.2;
   font-weight: bold;
   font-style: italic;
+  letter-spacing: 0.05rem;
 }
 
-h3 {
-  font-size: 2.0em;
+h3.h3 {
+  font-family: Merriweather, sans-serif;
+  font-size: 1.8rem;
   line-height: 1.0;
+  letter-spacing: 0.05rem;
 }
 
-h4 {
-  font-size: 1.2em;
+h4.h4 {
+  font-family: Merriweather, sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.05rem;
 }
 
-h5 {
-  font-size: 1.0em;
+h5.h5 {
+  font-size: 1.0rem;
   font-weight: normal;
   font-style: italic;
 }
 
-h6 {
-  font-size: 1.0em;
+p, span {
+  font-size: 1.0rem;
+  line-height: 1.0;
   font-weight: normal;
 }
 
-p {
-  font-size: 1.0em;
-  line-height: 1.0;
-  font-weight: normal;
+ul, dl, li, dt, dd, b, strong {
+  font-size: 1.0rem;
 }

@@ -1,6 +1,6 @@
 ports:
 - port: 5678
-  onOpen: open-preview
+  onOpen: open-browser
 tasks:
 - before: >
     export DEV_HOST=$(gp url 5678)

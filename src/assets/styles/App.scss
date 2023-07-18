@@ -5,17 +5,3 @@
   min-height: 100vh;
   text-align: center;
 }
-
-#root .App {
-  min-height: 100vh;
-  background-color: #fff;
-  color: #000;
-}
-
-#root .App .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(100vh - 141px);
-  padding-top: 60px;
-}

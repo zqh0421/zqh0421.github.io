@@ -1,20 +1,58 @@
 [
   {
+    "id": 8,
+    "title": "Portfolio - 2",
+    "desc": "Personal Project, 2023",
+    "to": "/untitled",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Portfolio - 1",
+    "desc": "Personal Project, 2023",
+    "to": "/vr",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+  },
+  {
+    "id": 6,
+    "title": "TOMAS",
+    "desc": "UND, 2023",
+    "to": "/tomas",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+  },
+  {
+    "id": 5,
     "title": "MuseumX",
-    "desc": "Course Project",
+    "desc": "BUCT, 2023",
     "to": "/museumx",
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
+    "id": 4,
     "title": "DialogX",
-    "desc": "AI-powered Dialog-to-Summarization",
+    "desc": "CityU, 2023",
     "to": "/dialogx",
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
+    "id": 3,
     "title": "CodeGPT",
-    "desc": "AI-powered",
+    "desc": "NCSU, 2023",
     "to": "/codegpt",
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+  },
+  {
+    "id": 2,
+    "title": "News Release Management System",
+    "desc": "BUCT, 2022",
+    "to": "/news-release",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+  },
+  {
+    "id": 1,
+    "title": "Find Shortest Path",
+    "desc": "BUCT, 2022",
+    "to": "https://github.com/zqh0421/Find-Shortest-Path",
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX/shortest-path.png"
   }
 ]
