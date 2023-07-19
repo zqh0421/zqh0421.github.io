@@ -3,49 +3,56 @@
     "id": 8,
     "title": "Portfolio - 2",
     "desc": "Personal Project, 2023",
-    "to": "/untitled",
+    "to": "/",
+    "isShown": false,
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
     "id": 7,
     "title": "Portfolio - 1",
     "desc": "Personal Project, 2023",
-    "to": "/vr",
+    "to": "/",
+    "isShown": false,
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
     "id": 6,
     "title": "TOMAS",
     "desc": "UND, 2023",
-    "to": "/tomas",
-    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+    "to": "https://github.com/zqh0421/TOMAS-React",
+    "isShown": true,
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/Screenshot%202023-07-18%20at%2013.52.04.png"
   },
   {
     "id": 5,
     "title": "MuseumX",
     "desc": "BUCT, 2023",
-    "to": "/museumx",
-    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+    "to": "https://github.com/zqh0421/museumx",
+    "isShown": true,
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/Screenshot%202023-07-19%20at%2014.49.59.png"
   },
   {
     "id": 4,
     "title": "DialogX",
     "desc": "CityU, 2023",
-    "to": "/dialogx",
+    "to": "/",
+    "isShown": false,
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
     "id": 3,
     "title": "CodeGPT",
     "desc": "NCSU, 2023",
-    "to": "/codegpt",
-    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
+    "to": "https://github.com/zqh0421/codegpt",
+    "isShown": true,
+    "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/Screenshot%202023-07-19%20at%2014.48.06.png"
   },
   {
     "id": 2,
     "title": "News Release Management System",
     "desc": "BUCT, 2022",
-    "to": "/news-release",
+    "to": "/",
+    "isShown": false,
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX.jpg"
   },
   {
@@ -53,6 +60,7 @@
     "title": "Find Shortest Path",
     "desc": "BUCT, 2022",
     "to": "https://github.com/zqh0421/Find-Shortest-Path",
+    "isShown": true,
     "preview": "https://pic-lib-z.oss-cn-beijing.aliyuncs.com/MuseumX/shortest-path.png"
   }
 ]

@@ -19,7 +19,7 @@ const CV = () => {
           <h5 className='h5'>Computer Science and Technology (B.E.)</h5>
           <h5 className='h5'>Expected 2024</h5>
         </MultiCol>
-        <ul className='content'>
+        <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>GPA: 3.96/4.33 (AVG: 92.84/100, top 3%)</li>
           <li>Main Courses: Data Structures, Algorithms, Objective Programming, Operative Systems, Database Principles, Computer Networks, Computer Vision, Compiler Principles</li>
           <li><b>Note: Trasferred from Chemical Engineering and Technology in July 2021.</b></li>
@@ -30,7 +30,7 @@ const CV = () => {
           <h4 className='h4'>XuetangX: NLP Training Camp</h4>
           <h5 className='h5'>Dec 2021 - Oct 2022</h5>
         </MultiCol>
-        <ul className='content'>
+        <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>Main Courses: Machine Learning, Deep Learning, Natural Language Processing, Algorithms</li>
         </ul>
       </Block>
@@ -45,7 +45,7 @@ const CV = () => {
           <h5 className='h5'>Jul 2023 - Present</h5>
         </MultiCol>
         <h6><b>Machine Learning Systems for Design Assistance</b></h6>
-        <ul className='content listIndent'>
+        <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>This project is expected to conduct ML model utilization and improvement, protyping and user studies.</li>
         </ul>
       </Block>
@@ -59,7 +59,7 @@ const CV = () => {
           <h5 className='h5'>Feb 2023 - Mar 2023</h5>
         </MultiCol>
         <h6><b>AI-Powered Dictation Summarization Interface</b></h6>
-        <ul className='content listIndent'>
+        <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>A web application that displays transcripts and corresponding summaries utilizing GPT-3.5/4 and Google Speech-to-Text APIs.</li>
           <li>Keywords: Speech-to-Text, Dictation Composition, Intelligent User Interface</li>
           <li><span>(Sorry, temporarily unavailable...😢)</span><a href="#">Demo</a> | <a href="#">Portfolio</a> | <a href='#'>Code</a></li>
@@ -75,7 +75,7 @@ const CV = () => {
           <h5 className='h5'>Jan 2023 - Feb 2023</h5>
         </MultiCol>
         <h6><b>Applying ChatGPT/OpenAI to Suggest Code Performance Optimization</b></h6>
-        <ul className='content listIndent'>
+        <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>A web application that helps users optimize their code performance by interacting with GPT-3.5/4.</li>
           <li>Keywords: React.js, TS, Express.js, GPT, GitHub, AWS, Nginx, LSP (Language Server Protocol), gopls</li>
           <li><a target='_blank' href="http://zqh0421.github.io/codegpt">Demo</a> | <a target='_blank' href="https://drive.google.com/file/d/1qF_V6sKxoIy7Z_MG5Z5lBHq9UEgU_Rle/view?usp=share_link">Poster</a> | <a target='_blank' href='https://github.com/zqh0421/codegpt'>Code</a></li>
@@ -91,7 +91,7 @@ const CV = () => {
           <h5 className='h5'>Frontend Developer</h5>
           <h5 className='h5'>Dec 2022 - Mar 2023</h5>
         </MultiCol>
-        <ul className='content pl-8'>
+        <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>Developed H5 pages of Qingdao Metro app and Lcago app.</li>
           <li>Participated in technological upgrades and migration of frontend frameworks.</li>
           <li>Collaborated with team members, including my mentors and other developers, UI designers and product managers.</li>
@@ -99,7 +99,7 @@ const CV = () => {
         </ul>
       </Block>
       <h3 className='h3'>Honors & Awards</h3>
-      <ul>
+      <ul className='[&>li]:list-disc [&>li]:list-inside'>
         <li>
           <MultiCol>
             <h6>China National Scholarship</h6>
@@ -144,7 +144,7 @@ const CV = () => {
         </li>
       </ul>
       <h3 className='h3'>Skills</h3>
-      <ul>
+      <ul className='[&>li]:list-disc [&>li]:list-inside'>
         <li>Programming Languages: C/C++, Python, Java, JavaScript, TypeScript, HTML, CSS/SCSS, SQL</li>
         <li>Frameworks: React, React Native, Vue, Express, Flask</li>
         <li>Tools: MySQL, Android Studio, XCode, Aliyun, AWS, Figma, Final Cut Pro, Logic Pro, Adobe Audition</li>

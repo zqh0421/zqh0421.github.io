@@ -4,14 +4,6 @@ import MultiCol from '../components/MultiCol'
 const Misc = () => {
   return (
     <div className="misc max-w-[80vw] mx-auto my-0 [&>h3]:my-10 [&>*]:text-left [&>p]:my-8">
-      <h3 className='h3'>Recent Plans</h3>
-      <Block>
-        <ul className='content pl-8'>
-          <li>Work harder and harder for my summer research project</li>
-          <li>Work on my portfolios</li>
-          <li>Find an internship</li>
-        </ul>
-      </Block>
       <h3 className='h3'>All about Music&Art</h3>
       <Block>
         <MultiCol>
@@ -39,10 +31,17 @@ const Misc = () => {
           <h4 className='h4'>📍Beijing, China</h4>
           <h4 className='h4'>2019 - 2021</h4>
         </MultiCol>
-        <p>Played the piano.</p>
+        <p>Played the piano for the chorus.</p>
       </Block>
 
       <h3 className='h3'>Travel</h3>
+      <Block>
+        <MultiCol>
+          <h4 className='h4'>📍Notre Dame, the US</h4>
+          <h4 className='h4'>Jul, 2023 - Aug, 2023</h4>
+        </MultiCol>
+        <p>Slow-pace life!</p>
+      </Block>
       <Block>
         <MultiCol>
           <h4 className='h4'>📍Chicago, the US</h4>
@@ -63,6 +62,20 @@ const Misc = () => {
           <h4 className='h4'>Jun, 2023</h4>
         </MultiCol>
         <p>My first international trip after the pandemic!🤩</p>
+      </Block>
+      <Block>
+        <MultiCol>
+          <h4 className='h4'>📍Beijing, China</h4>
+          <h4 className='h4'>2019 - 2023</h4>
+        </MultiCol>
+        <p>Having been studied here for 4 years...</p>
+      </Block>
+      <Block>
+        <MultiCol>
+          <h4 className='h4'>📍Qingdao, China</h4>
+          <h4 className='h4'>2001 - ♾️️</h4>
+        </MultiCol>
+        <p>My home!</p>
       </Block>
     </div>
   )
