@@ -6,9 +6,7 @@ const Header = () => {
 
   const onSwapNavigate = () => {
     setIsSwapedOn(false)
-    const scrollBehavior: ScrollBehavior = "instant";
-    const scrollOptions: ScrollToOptions = { behavior: scrollBehavior, top: 0 };
-    scrollTo(scrollOptions)
+    scrollTo({ behavior: "instant", top: 0 } as any)
   }
   
   return (
