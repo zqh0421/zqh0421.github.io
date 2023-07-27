@@ -5,7 +5,7 @@ import MultiCol from '../components/MultiCol'
 
 const CV = () => {
   return (
-    <div className="cv max-w-[80vw] mx-auto my-0 [&>*]:text-left [&>.downloadCV]:text-center mt-12 [&>p]:my-8 [&>h3]:my-10">
+    <div className="cv max-w-[80vw] mx-auto mt-32 [&>*]:text-left [&>.downloadCV]:text-center [&>p]:my-8 [&>h3]:my-10">
       <DownloadCV />
       <h3 className='h3'>Research Interests</h3>
       <p>Human-Computer Interaction, Front-End Development, Intelligent User Interface, User Experience, AI Application</p>

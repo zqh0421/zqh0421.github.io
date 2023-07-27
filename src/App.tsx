@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App min-h-screen bg-base-100 text-base-content">
       <Header />
-      <div className='content-wrapper flex flex-col justify-between min-h-[calc(100vh-141px)] pt-15' >
+      <div className='content-wrapper flex flex-col justify-between min-h-[calc(100vh-80px)] pt-15' >
         <Routes>
         <Route path='/' Component={Home} />
           <Route path='/misc' Component={Misc} />

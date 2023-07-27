@@ -10,7 +10,7 @@ const Header = () => {
   }
   
   return (
-    <div className="sticky bg-transparent top-0 left-0 w-full h-fit z-50 backdrop-blur-md">
+    <div className="fixed bg-transparent top-0 left-0 w-full h-fit z-50 backdrop-blur-md">
       <div className="overflow-hidden z-10 mx-auto my-0 flex justify-between w-[90vw] h-20 leading-[80px] text-xl tracking-wide font-sans">
         <div className="transition-all z-10"><Link to='/'>Qianhui Zhao</Link></div>
         <div className="z-10 h-full my-2 md:my-0">

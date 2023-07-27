@@ -3,7 +3,7 @@ import Block from '../components/Block'
 import MultiCol from '../components/MultiCol'
 const Misc = () => {
   return (
-    <div className="misc max-w-[80vw] mx-auto my-0 [&>h3]:my-10 [&>*]:text-left [&>p]:my-8">
+    <div className="misc max-w-[80vw] mx-auto my-20 [&>h3]:my-10 [&>*]:text-left [&>p]:my-8">
       <p>Hello, I'm Qianhui</p>
       <p>Fun facts:</p>
       <ol>
