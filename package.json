@@ -5,7 +5,7 @@
   "homepage": "https://zqh0421.github.io",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp build/index.html build/404.html",
+    "build": "tsc && vite build && cp dist/index.html dist/404.html",
     "preview": "vite preview"
   },
   "dependencies": {
