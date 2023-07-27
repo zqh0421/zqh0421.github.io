@@ -6,11 +6,12 @@ const Header = () => {
 
   const onSwapNavigate = () => {
     setIsSwapedOn(false)
-    scrollTo({ behavior: 'instant', top: 0 })
+    const scrollOptions: ScrollToOptions = { behavior: 'instant', top: 0 };
+    scrollTo(scrollOptions)
   }
   
   return (
-    <div className="bg-base-100 sticky top-0 left-0 w-full h-fit border-b-base-200 border-b-solid border-b-[1px] z-50">
+    <div className="fixed bg-transparent top-0 left-0 w-full h-fit z-50 backdrop-blur-md">
       <div className="overflow-hidden z-10 mx-auto my-0 flex justify-between w-[90vw] h-20 leading-[80px] text-xl tracking-wide font-sans">
         <div className="transition-all z-10"><Link to='/'>Qianhui Zhao</Link></div>
         <div className="z-10 h-full my-2 md:my-0">

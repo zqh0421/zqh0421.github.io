@@ -5,7 +5,7 @@ import DownloadCV from '../components/DownloadCV'
 const Home = () => {
   return (
     <div className="max-w-[80vw] mx-auto my-0">
-      <div className='preface flex min-h-fit mt-8 lg:mt-0 h-[calc(100vh-80px)] items-center justify-center flex-col-reverse lg:flex-row'>
+      <div className='preface flex min-h-fit mt-8 lg:mt-0 h-screen items-center justify-center flex-col-reverse lg:flex-row'>
         <div className='h-min lg:text-left'>
           <h2 className="tracking-wide font-sans font-bold italic text-2xl lg:text-4xl/10">Hi, there! I'm Qianhui,</h2>
             <div className='[&>p]:my-3 [&>p]:text-sm lg:[&>p]:my-6 lg:[&>p]:text-2xl/[40px]'>
@@ -14,7 +14,7 @@ const Home = () => {
               <DownloadCV className="text-sm lg:text-xl mb-[120px] lg:mb-0"/>
           </div>
         </div>
-        <img className="w-[calc(min(30vw,280px))] p-0 mx-0 mb-8 lg:ml-5 lg:mb-0 shadow-lg shadow-neutral-400 rounded-br-[50%] rounded-tl-[50%]" src={photo} />
+        <img className="w-[calc(max(30vw,280px))] p-0 mx-0 mb-8 lg:ml-5 lg:mb-0 shadow-lg shadow-neutral-400 rounded-br-[50%] rounded-tl-[50%]" src={photo} />
       </div>
       <div className='mx-auto w-[80vw] h-px bg-base-200' />
       <div className='text-left'>
