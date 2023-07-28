@@ -20,7 +20,7 @@ const CV = () => {
           <h5 className='h5'>Expected 2024</h5>
         </MultiCol>
         <ul className='[&>li]:list-disc [&>li]:list-inside'>
-          <li>GPA: 3.96/4.33 (AVG: 92.84/100, top 3%)</li>
+          <li>GPA: 3.96/4.33 (AVG: 92.65/100, top 3%)</li>
           <li>Main Courses: Data Structures, Algorithms, Objective Programming, Operative Systems, Database Principles, Computer Networks, Computer Vision, Compiler Principles</li>
           <li><b>Note: Trasferred from Chemical Engineering and Technology in July 2021.</b></li>
         </ul>
@@ -44,9 +44,9 @@ const CV = () => {
           <h5 className='h5'>On-Site Research Assistant</h5>
           <h5 className='h5'>Jul 2023 - Present</h5>
         </MultiCol>
-        <h6><b>Machine Learning Systems for Design Assistance</b></h6>
+        <h6><b>TOMAS: A LLM-Based Approach to Improve Website Accessibility for Older Adults</b></h6>
         <ul className='[&>li]:list-disc [&>li]:list-inside'>
-          <li>This project is expected to conduct ML model utilization and improvement, protyping and user studies.</li>
+          <li>This project is expected to conduct protyping, web development, prompt engineering and user studies.</li>
         </ul>
       </Block>
       <Block>
@@ -62,7 +62,7 @@ const CV = () => {
         <ul className='[&>li]:list-disc [&>li]:list-inside'>
           <li>A web application that displays transcripts and corresponding summaries utilizing GPT-3.5/4 and Google Speech-to-Text APIs.</li>
           <li>Keywords: Speech-to-Text, Dictation Composition, Intelligent User Interface</li>
-          <li><span>(Sorry, temporarily unavailable...😢)</span><a href="#">Demo</a> | <a href="#">Portfolio</a> | <a href='#'>Code</a></li>
+          {/* <li><span>(Sorry, temporarily unavailable...😢)</span><a href="#">Demo</a> | <a href="#">Portfolio</a> | <a href='#'>Code</a></li> */}
         </ul>
       </Block>
       <Block>
