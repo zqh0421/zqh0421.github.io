@@ -10,7 +10,7 @@ const Home = () => {
           <h2 className="tracking-wide font-sans font-bold italic text-2xl lg:text-4xl/10">Hi, there! I'm Qianhui,</h2>
             <div className='[&>p]:my-3 [&>p]:text-sm lg:[&>p]:my-6 lg:[&>p]:text-2xl/[40px]'>
               <p>a front-end developer and HCI researcher currently based in Notre Dame, the US.</p>
-              <p>I'm looking for full-time work opportunities during Sep 2023 - Jun 2024!</p>
+              <p>I'm looking for work opportunities during Sep 2023 - Jun 2024!</p>
               <DownloadCV className="text-sm lg:text-xl mb-[120px] lg:mb-0"/>
           </div>
         </div>

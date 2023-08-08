@@ -8,7 +8,7 @@ const CV = () => {
     <div className="cv max-w-[80vw] mx-auto mt-32 [&>*]:text-left [&>.downloadCV]:text-center [&>p]:my-8 [&>h3]:my-10">
       <DownloadCV />
       <h3 className='h3'>Research Interests</h3>
-      <p>Human-Computer Interaction, Front-End Development, Intelligent User Interface, User Experience, AI Application</p>
+      <p>Human-Computer Interaction, Intelligent User Interface, Human-AI Collaboration, Front-End Development, User Experience</p>
       <h3 className='h3'>Education</h3>
       <Block>
         <MultiCol>
