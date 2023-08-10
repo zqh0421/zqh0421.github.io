@@ -1,8 +1,9 @@
 ---
 // import NavBar from '../components/NavBar.astro';
+import LoadingScreen from '../components/LoadingScreen';
 import NavBar from '../components/NavBar';
 import Header from '../components/Header.astro';
-import ScrollLayout from './ScrollLayout.astro';
+import Hero from './Hero.astro';
 interface Props {
 	title: string;
 }
@@ -21,13 +22,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="[color-theme:dark]">
-		<NavBar client:idle isInitialBackgroundTransparent={false} />
+		<LoadingScreen client:load />
+		<NavBar client:idle isInitialBackgroundTransparent={true} />
 		<Header />
-		<!-- <NavBar
-      client:load
-      isInitialBackgroundTransparent={false}
-    /> -->
-		<ScrollLayout />
+		<Hero />
 	</body>
 </html>
 <style is:global>
@@ -36,7 +34,7 @@ const { title } = Astro.props;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-		color-scheme: light dark;
+		color-scheme: dark;
 	}
 	html {
 		font-family: system-ui, sans-serif;
