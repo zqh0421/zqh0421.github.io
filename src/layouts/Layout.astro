@@ -1,6 +1,8 @@
---- 
+---
+// import NavBar from '../components/NavBar.astro';
+import NavBar from '../components/NavBar';
 import Header from '../components/Header.astro';
-
+import ScrollLayout from './ScrollLayout.astro';
 interface Props {
 	title: string;
 }
@@ -19,8 +21,13 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="[color-theme:dark]">
+		<NavBar client:idle isInitialBackgroundTransparent={false} />
 		<Header />
-		<slot />
+		<!-- <NavBar
+      client:load
+      isInitialBackgroundTransparent={false}
+    /> -->
+		<ScrollLayout />
 	</body>
 </html>
 <style is:global>
