@@ -44,38 +44,41 @@ function NavBarReact({ isInitialBackgroundTransparent = false }: NavBarProps) {
     >
       <div
         className={cn('border-b-[0.5px] py-2 transition-colors duration-500',
-            isBackgroundShown
-            ? 'border-neutral-600 bg-neutral-900/90 backdrop-blur-md supports-[backdrop-filter]:bg-neutral-900/50'
-            : 'border-transparent bg-transparent')}
+          isBackgroundShown
+          ? 'border-neutral-600 bg-neutral-900/90 backdrop-blur-md supports-[backdrop-filter]:bg-neutral-900/50'
+          : 'border-transparent bg-transparent')}
       >
         <Wrapper className="flex flex-col items-center justify-between lg:flex-row">
-        <div className="grid grid-cols-3">
-          <div className="flex items-center md:hidden">
-            <MobileNavigation.Toggle
-              isOpen={isMobileMenuOpen}
-              onIsOpenChange={setIsMobileMenuOpen}
-            />
-          </div>
-          <nav
-            aria-label="Primary"
-            className="hidden items-center gap-x-6 md:flex"
-          >
+          <div className="w-full grid grid-cols-3">
+            <div className="flex items-center md:hidden">
+              <MobileNavigation.Toggle
+                isOpen={isMobileMenuOpen}
+                onIsOpenChange={setIsMobileMenuOpen}
+              />
+            </div>
+            <ul
+              aria-label="Primary"
+              className="hidden items-center gap-x-6 md:flex"
+            >
               {menuItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.path}
-                  className="relative py-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
-                >
-                  {item.title}
-                </a>
+                <li className="items-center justify-center">
+                  <a
+                    key={index}
+                    href={item.path}
+                    className="relative py-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
+                  >
+                    {item.title}
+                  </a>
+                </li>
               ))}
-            </nav>
+            </ul>
             <div className="flex items-center justify-center">
               <a
                 href="/"
                 title="Navigate home"
+                className='items-center justify-center'
               >
-                <div className="h-3 md:h-4">Logo</div>
+                Qianhui
               </a>
             </div>
             <div className="flex items-center justify-end">
