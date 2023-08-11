@@ -14,6 +14,15 @@ const { title } = Astro.props;
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth [color-scheme:dark]">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1Z9R2KPMR"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-S1Z9R2KPMR');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
@@ -21,15 +30,6 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1Z9R2KPMR"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-S1Z9R2KPMR');
-	</script>
 	<body class="w-screen">
 		<LoadingScreen client:load />
 		<NavBar client:idle isInitialBackgroundTransparent={true} />
