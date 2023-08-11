@@ -1,4 +1,4 @@
-import Wrapper from '../ui/Wrapper';
+import Wrapper from '../layouts/Wrapper';
 import useLockBody from '../hooks/useBodyLock';
 import { cn } from '../utils/cn';
 import { AnimatePresence, motion, useAnimate } from 'framer-motion';

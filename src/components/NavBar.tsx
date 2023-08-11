@@ -1,9 +1,10 @@
 import useScroll from '../hooks/useScroll';
 import useWindowSize from '../hooks/useWindowSize';
 import { ReactNode, useState } from 'react';
-import Wrapper from '../ui/Wrapper';
+import Wrapper from '../layouts/Wrapper';
 import { cn } from '../utils/cn';
 import MobileNavigation from './MobileNav';
+import ButtonLink from './ui/ButtonLink';
 
 export const menuItems = [
 	{
@@ -25,7 +26,7 @@ interface NavBarProps {
   isInitialBackgroundTransparent?: boolean | undefined;
 }
 
-function NavBarReact({ isInitialBackgroundTransparent = false }: NavBarProps) {
+function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const windowSize = useWindowSize();
   const { scrollY } = useScroll();
@@ -50,28 +51,14 @@ function NavBarReact({ isInitialBackgroundTransparent = false }: NavBarProps) {
       >
         <Wrapper className="flex flex-col items-center justify-between lg:flex-row">
           <div className="w-full grid grid-cols-3">
-            <div className="flex items-center md:hidden">
-              <MobileNavigation.Toggle
-                isOpen={isMobileMenuOpen}
-                onIsOpenChange={setIsMobileMenuOpen}
-              />
+            <div className="flex items-center">
+            <ButtonLink
+                href="/#contact"
+                size="small"
+                isGhost
+              >DownLoad CV
+              </ButtonLink>
             </div>
-            <ul
-              aria-label="Primary"
-              className="hidden items-center gap-x-6 md:flex"
-            >
-              {menuItems.map((item, index) => (
-                <li className="items-center justify-center">
-                  <a
-                    key={index}
-                    href={item.path}
-                    className="relative py-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
-                  >
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
             <div className="flex items-center justify-center">
               <a
                 href="/"
@@ -81,9 +68,27 @@ function NavBarReact({ isInitialBackgroundTransparent = false }: NavBarProps) {
                 Qianhui
               </a>
             </div>
-            <div className="flex items-center justify-end">
-              Right
+            <div className="flex items-center md:hidden justify-end">
+              <MobileNavigation.Toggle
+                isOpen={isMobileMenuOpen}
+                onIsOpenChange={setIsMobileMenuOpen}
+              />
             </div>
+            <ul
+              aria-label="Primary"
+              className="hidden items-center gap-x-6 md:flex justify-end"
+            >
+              {menuItems.map((item, index) => (
+                <li className="items-center justify-center" key={index}>
+                  <a
+                    href={item.path}
+                    className="relative py-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </Wrapper>
       </div>
@@ -100,4 +105,4 @@ function NavBarReact({ isInitialBackgroundTransparent = false }: NavBarProps) {
   );
 }
 
-export default NavBarReact;
+export default NavBar;

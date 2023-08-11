@@ -2,7 +2,7 @@
 // import NavBar from '../components/NavBar.astro';
 import LoadingScreen from '../components/LoadingScreen';
 import NavBar from '../components/NavBar';
-import Header from '../components/Header.astro';
+import Main from '../components/Main';
 import Hero from './Hero.astro';
 interface Props {
 	title: string;
@@ -24,7 +24,7 @@ const { title } = Astro.props;
 	<body>
 		<LoadingScreen client:load />
 		<NavBar client:idle isInitialBackgroundTransparent={true} />
-		<Header />
+		<Main client:idle />
 		<Hero />
 	</body>
 </html>
