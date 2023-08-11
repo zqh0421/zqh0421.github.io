@@ -11,7 +11,7 @@ const Main = () => {
   }, [screenX, screenY])
   return (
     <header className={cn(
-      "fixed z-[-1] top-0 pt-10 w-screen h-screen flex flex-col items-center justify-center",
+      "fixed z-[-1] top-0 left-0 pt-10 w-screen h-screen flex flex-col items-center justify-center",
       "inset-0 transition duration-300 bg-slate-900"
     )}>
     <h1 className="w-11/12 lg:w-4/5 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">

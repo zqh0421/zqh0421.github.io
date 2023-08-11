@@ -1,22 +1,6 @@
-import Icons from './ui/Icons';
-import Image from './ui/Image';
 import { useState } from 'react';
 import siteConfig from '../utils/site';
 import Wrapper from '../layouts/Wrapper';
-const links = [
-  {
-    label: 'About',
-    href: '/#about',
-  },
-  {
-    label: 'Projects',
-    href: '/#projects',
-  },
-  {
-    label: 'Contact',
-    href: '/#contact',
-  },
-];
 
 const socialMedia = [
   {
@@ -45,6 +29,8 @@ const socialMedia = [
 
 function Footer() {
   const [currentYear] = useState(() => new Date().getFullYear());
+  const [currentMonth] = useState(() => new Date().getUTCMonth())
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
   return (
     <footer
@@ -55,7 +41,7 @@ function Footer() {
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
         <ul
           aria-label="social-media"
-          className="flex justify-center gap-x-6 py-12"
+          className="flex flex-col items-center md:flex-row md:justify-center gap-x-6 py-12"
         >
           {socialMedia.map(({ label, href }, index) => (
             <li key={index}>
@@ -68,7 +54,7 @@ function Footer() {
               >
                 {label}
               </a>
-              { label!=="EMAIL" ? <span className='pl-6'>·</span> : null}
+              { label!=="EMAIL" ? <span className='block text-center md:inline-block md:pl-6'>·</span> : null}
             </li>
           ))}
         </ul>
@@ -78,7 +64,7 @@ function Footer() {
           
           <div className="flex justify-center lg:order-2 lg:justify-center">
             <small className="text-xs text-neutral-300">
-              QIANHUI ZHAO {currentYear}
+              QIANHUI ZHAO {months[currentMonth]} {currentYear}
             </small>
           </div>
         </div>

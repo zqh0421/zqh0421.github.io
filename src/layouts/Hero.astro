@@ -1,11 +1,13 @@
 ---
 import About from '../components/sections/About.astro'
 import Projects from '../components/sections/Projects.astro';
+import Contact from '../components/sections/Contact.astro';
 import Footer from '../components/Footer';
 ---
 
-<div id="hero" class="bg-neutral-50 min-h-min h-min absolute top-full w-full flex flex-col justify-center scroll-smooth">
+<div id="hero" class="bg-neutral-50 min-h-min h-min absolute top-full left-0 w-screen flex flex-col justify-center scroll-smooth">
   <About />
   <Projects />
+  <Contact />
   <Footer client:idle />
 </div>

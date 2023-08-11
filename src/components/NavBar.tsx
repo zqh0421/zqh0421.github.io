@@ -41,7 +41,7 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
   return (
     <nav
       aria-label="Primary"
-      className="fixed top-0 w-full z-40"
+      className="fixed top-0 left-0 w-full z-40"
     >
       <div
         className={cn('border-b-[0.5px] py-2 transition-colors duration-500',
