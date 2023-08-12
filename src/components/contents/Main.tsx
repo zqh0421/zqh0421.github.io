@@ -1,6 +1,6 @@
-import ButtonLink from './ui/ButtonLink'
-import { cn } from '../utils/cn';
-import useMouseMove from '../hooks/useMouseMove'
+import ButtonLink from '../ui/ButtonLink'
+import { cn } from '../../utils/cn';
+import useMouseMove from '../../hooks/useMouseMove'
 import { useEffect } from 'react';
 
 const Main = () => {
@@ -21,10 +21,15 @@ const Main = () => {
       Innovation in Coding
     </h1>
     <ButtonLink
-      href="/#hero"
+      href="#hero"
       background="primary"
       size="large"
       className="mt-6 lg:mt-12"
+      onClick={(event) => {
+        event.preventDefault()
+        const target = document.getElementById('hero');
+        target && target.scrollIntoView({ behavior: 'smooth' });
+      }}
       isGhost
     >
       Learn More

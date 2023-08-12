@@ -3,6 +3,7 @@ import Image from '../ui/Image';
 import qianhuiImage from '../../assets/qianhui.jpg';
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../ui/typography';
+import { ItemInViewAnimation } from '../ui/InViewAnimation'
 ---
 
 <section id="about" class="w-full flex flex-col lg:grid lg:grid-cols-2">
@@ -13,19 +14,16 @@ import { Caption, Heading, Paragraph } from '../ui/typography';
     className="inset-0 max-h-screen w-full object-cover object-center"
   />
   <Wrapper className="h-full my-20 flex flex-col justify-center lg:my-0">
-    <Caption>
-      ABOUT
-    </Caption>
-    <Heading >
-      👋🏻Hi there! I'm Qianhui,
-    </Heading>
-    <Paragraph>
-      a front-end devloper and HCI researcher currently based in Notre Dame, Indiana, the US.
-    </Paragraph>
+      <ItemInViewAnimation delay={0.1} client:visible >
+        <Caption>
+          ABOUT
+        </Caption>
+        <Heading >
+          👋🏻Hi there! I'm Qianhui,
+        </Heading>
+        <Paragraph>
+          a front-end devloper and HCI researcher currently based in Notre Dame, Indiana, the US.
+        </Paragraph>
+      </ItemInViewAnimation>
   </Wrapper>
 </section>
-
-<!-- <section
-  id="projects"
-  class="relative z-10 w-full bg-slate-900 py-28"
-> -->

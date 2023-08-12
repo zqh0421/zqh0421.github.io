@@ -1,6 +1,6 @@
-import Wrapper from '../layouts/Wrapper';
-import useLockBody from '../hooks/useBodyLock';
-import { cn } from '../utils/cn';
+import Wrapper from '../../layouts/Wrapper';
+import useLockBody from '../../hooks/useBodyLock';
+import { cn } from '../../utils/cn';
 import { AnimatePresence, motion, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
 
@@ -100,7 +100,7 @@ function MobileNavigationOverlay({
           transition={{ duration: 0.5 }}
           aria-hidden
           onClick={onClose}
-          className="fixed inset-0 -z-10 bg-neutrals-900/40 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 -z-10 bg--900/40 backdrop-blur-sm md:hidden"
         />
       )}
     </AnimatePresence>

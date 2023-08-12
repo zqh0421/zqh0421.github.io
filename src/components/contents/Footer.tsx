@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import siteConfig from '../utils/site';
-import Wrapper from '../layouts/Wrapper';
+import siteConfig from '../../utils/site';
+import Wrapper from '../../layouts/Wrapper';
 
 const socialMedia = [
   {
@@ -29,7 +29,8 @@ const socialMedia = [
 
 function Footer() {
   const [currentYear] = useState(() => new Date().getFullYear());
-  const [currentMonth] = useState(() => new Date().getUTCMonth())
+  const [currentMonth] = useState(() => new Date().getUTCMonth());
+  const [currentDay] = useState(() => new Date().getUTCDate());
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
   return (
@@ -59,14 +60,13 @@ function Footer() {
           ))}
         </ul>
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
-        <div className="grid grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-3">
-          <div className="hidden lg:block lg: order-first"></div>
-          
-          <div className="flex justify-center lg:order-2 lg:justify-center">
-            <small className="text-xs text-neutral-300">
-              QIANHUI ZHAO {months[currentMonth]} {currentYear}
-            </small>
-          </div>
+        <div className="flex flex-col items-center justify-center py-12">
+          <small className="text-xs/5 text-neutral-300">
+            Make by QIANHUI ZHAO
+          </small>
+          <small className="text-xs/5 text-neutral-300">
+            Last Updated: {months[currentMonth]} {currentDay}, {currentYear}
+          </small>
         </div>
       </Wrapper>
     </footer>

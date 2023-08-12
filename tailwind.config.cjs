@@ -9,18 +9,6 @@ module.exports = {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
 				colors: {
 					primary: '#6919FF',
-					// neutrals: {
-					// 	900: '#060918',
-					// 	800: '#161A2C',
-					// 	700: '#23263B',
-					// 	600: '#2E364F',
-					// 	500: '#4D5775',
-					// 	400: '#6F7A9B',
-					// 	300: '#96A1C0',
-					// 	200: '#C7D0E5',
-					// 	100: '#F0F2FE',
-					// 	50: '#FFFEF9',
-					// },
 					success: '#00F090',
 					warning: '#FFDC30',
 					error: '#FF2E5B',
