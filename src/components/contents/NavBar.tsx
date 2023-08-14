@@ -53,14 +53,10 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
           <div className="w-full grid grid-cols-3">
             <div className="flex items-center">
             <ButtonLink
-              href="#contact"
+              target='_blank'
+              href="https://drive.google.com/file/d/1h_XRQjizTTwRxbRRHvxCuOTYPoCwic8C/view?usp=sharing"
               size="small"
               isGhost
-              onClick={(event) => {
-                event.preventDefault()
-                const target = document.getElementById('contact');
-                target && target.scrollIntoView({ behavior: 'smooth' });
-              }}
             >DownLoad CV
             </ButtonLink>
             </div>

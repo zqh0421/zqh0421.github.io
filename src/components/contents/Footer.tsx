@@ -62,7 +62,7 @@ function Footer() {
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
         <div className="flex flex-col items-center justify-center py-12">
           <small className="text-xs/5 text-neutral-300">
-            Make by QIANHUI ZHAO
+            Made with Astro & React by QIANHUI ZHAO
           </small>
           <small className="text-xs/5 text-neutral-300">
             Last Updated: {months[currentMonth]} {currentDay}, {currentYear}

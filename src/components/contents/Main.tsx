@@ -4,11 +4,11 @@ import useMouseMove from '../../hooks/useMouseMove'
 import { useEffect } from 'react';
 
 const Main = () => {
-  const { screenX, screenY } = useMouseMove()
+  const { pageX, pageY } = useMouseMove()
   useEffect(() => {
     const header = document.getElementsByTagName('header')[0]
-    header.style.backgroundImage = `radial-gradient(600px at ${screenX}px ${screenY}px, rgba(29, 78, 216, 0.2), transparent 80%)`;
-  }, [screenX, screenY])
+    header.style.backgroundImage = `radial-gradient(600px at ${pageX}px ${pageY}px, rgba(29, 78, 216, 0.2), transparent 80%)`;
+  }, [pageX, pageY])
   return (
     <header className={cn(
       "fixed z-[-1] top-0 left-0 pt-10 w-screen h-screen flex flex-col items-center justify-center",

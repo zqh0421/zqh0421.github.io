@@ -1,0 +1,61 @@
+---
+import Wrapper from '../../layouts/Wrapper';
+import { ItemInViewAnimation } from './InViewAnimation';
+import { Paragraph } from './typography';
+interface Props {
+	title: string;
+	desc: string;
+	href: string;
+  time: string;
+  location: string;
+  tags: string[];
+  cover: string;
+}
+
+const { href, title, desc, time, location, tags, cover } = Astro.props;
+---
+<ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
+  <li class="card list-none flex p-[1px] bg-[color:#23262d] bg-[image:none] bg-[size:400%] bg-[position:100%] rounded-[7px] opacity-100">
+    <a href={href} class="w-full [text-decoration:none] leading-[1.4] p-[calc(1.5rem-1px)] rounded-lg bg-[#23262d] opacity-80 flex flex-col lg:grid lg:grid-cols-2 lg:gap-6">
+      <img
+        src={cover}
+        class="aspect-video w-full rounded-[0.25rem] object-cover object-center"
+      />
+      <Wrapper className="h-full my-10 flex flex-col justify-center lg:my-0">
+        <h2 class="m-0 text-md lg:text-xl font-semibold tracking-wide text-neutral-50">
+          {title}
+          <span>&rarr;</span>
+        </h2>
+        <Paragraph className="mt-2 mb-0 text-neutral-50">
+          {desc}
+        </Paragraph>
+        <ul class="flex mt-2 flex-wrap leading-loose">
+          {
+            tags.map(tag => <li class="tag h-8 px-4 py-2 rounded-3xl text-center leading-4 mr-2 mt-2 tracking-wide">{tag}</li>)
+          }
+        </ul>
+      </Wrapper>
+    </a>
+  </li>
+</ItemInViewAnimation>
+<style>
+	.card {
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+	h2 {
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.card:is(:hover, :focus-within) {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+	.card:is(:hover, :focus-within) h2 {
+    color: rgb(var(--accent-light));
+	}
+  .tag {
+    color: rgb(var(--accent-light));
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+</style>
+
