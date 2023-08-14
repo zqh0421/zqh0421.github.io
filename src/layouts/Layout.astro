@@ -56,13 +56,13 @@ const { title } = Astro.props;
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
-	.projectList > .card {
+	.projectList .card {
 		transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
-  .projectList:is(:hover, :focus-within) > .card {
+  .projectList:is(:hover, :focus-within) .card {
     opacity: 0.5;
   }
-  .projectList:is(:hover, :focus-within) > .card:hover {
+  .projectList:is(:hover, :focus-within) .card:hover {
     opacity: 1;
   }
 </style>
