@@ -1,0 +1,54 @@
+---
+import { projectList } from '../../components/contents/Projects.astro';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import Wrapper from '../../layouts/Wrapper';
+import { Caption, Heading, Paragraph } from '../../components/ui/typography';
+import { ItemInViewAnimation } from '../../components/ui/InViewAnimation'
+
+export function getStaticPaths() {
+  return projectList.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+interface ProjectProps {
+	title: string;
+	desc: string;
+	href: string;
+  time: string;
+  location: string;
+  tags: string[];
+  cover: string;
+}
+
+export interface Props {
+  project: ProjectProps;
+}
+
+const { slug } = Astro.params;
+const { project } = Astro.props;
+
+---
+
+<ProjectLayout
+  title={`${project.title} ― Qianhui`}
+  description={project.desc}
+>
+  <main id="main" class="bg-slate-900 w-full h-full">
+    <img src={project.cover} class="w-full" />
+    <Wrapper className="h-full my-20 flex flex-col justify-center lg:my-0">
+      <ItemInViewAnimation delay={0.1} client:visible >
+        <Caption>
+          {project.location}
+        </Caption>
+        <Heading className='text-neutral-50'>
+          {project.title}
+        </Heading>
+        <Paragraph className='text-neutral-50'>
+          {project.desc}
+        </Paragraph>
+      </ItemInViewAnimation>
+  </Wrapper>
+  </main>
+</Layout>

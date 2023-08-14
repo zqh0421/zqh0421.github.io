@@ -2,7 +2,7 @@
 import Wrapper from '../../layouts/Wrapper';
 import { ItemInViewAnimation } from './InViewAnimation';
 import { Paragraph } from './typography';
-interface Props {
+export interface Props {
 	title: string;
 	desc: string;
 	href: string;
@@ -14,7 +14,7 @@ interface Props {
 
 const { href, title, desc, time, location, tags, cover } = Astro.props;
 
-const isStartWith = (fullStr: string, prefix:string) => {
+const isStartWith = (fullStr: string, prefix: string) => {
   if (fullStr.length < prefix.length) return false
   fullStr = fullStr.toUpperCase()
   prefix = prefix.toUpperCase()
