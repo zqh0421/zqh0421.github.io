@@ -1,52 +1,49 @@
 ---
-import { projectList } from '../../components/contents/Projects.astro';
+import { blogList } from '../../components/contents/Blogs.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../../components/ui/typography';
 import { ItemInViewAnimation } from '../../components/ui/InViewAnimation'
 
 export function getStaticPaths() {
-  return projectList.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
+  return blogList.map((blog) => ({
+    params: { slug: blog.slug },
+    props: { blog },
   }));
 }
 
-interface ProjectProps {
+interface BlogProps {
 	title: string;
-	desc: string;
+	abstract: string;
 	href: string;
-  time: string;
-  location: string;
-  tags: string[];
-  cover: string;
+  date: string;
+  slug: string;
 }
 
 export interface Props {
-  project: ProjectProps;
+  blog: BlogProps;
 }
 
 const { slug } = Astro.params;
-const { project } = Astro.props;
+const { blog } = Astro.props;
 
 ---
 
 <ProjectLayout
-  title={`${project.title} ― Qianhui`}
-  description={project.desc}
+  title={`${blog.title} ― Qianhui`}
+  description={blog.abstract}
 >
   <main id="main" class="bg-slate-900 text-neutral-50 w-full h-full">
-    <img src={project.cover} class="w-full" />
     <Wrapper className="h-full my-20 flex flex-col justify-center lg:my-0">
       <ItemInViewAnimation delay={0.1} client:visible >
         <Caption>
-          {project.location}
+          {blog.date}
         </Caption>
         <Heading className='text-neutral-50'>
-          {project.title}
+          {blog.title}
         </Heading>
         <Paragraph className='text-neutral-50'>
-          {project.desc}
+          {blog.abstract}
         </Paragraph>
       </ItemInViewAnimation>
   </Wrapper>

@@ -60,17 +60,22 @@ function MobileNavigation({ isOpen = false, onClose, items }: MobileNavigationPr
               }}
               className="flex flex-col justify-center"
             >
-              {items.map((itetm, index) => (
+              {items.map((item, index) => (
                 <a
                   key={index}
-                  href={itetm.path}
-                  onClick={() => onClose()}
+                  href={'#' + item.path}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    const target = document.getElementById(item.path);
+                    target && target.scrollIntoView({ behavior: 'smooth' });
+                    onClose();
+                  }}
                   className={cn(
-                    'py-0.5 uppercase text-neutral-200 transition-[letter-spacing,color]',
+                    'py-2 uppercase text-neutral-200 transition-[letter-spacing,color]',
                     'hover:tracking-wider hover:text-neutral-50 focus-visible:tracking-wider focus-visible:text-neutral-50',
                   )}
                 >
-                  {itetm.title}
+                  {item.title}
                 </a>
               ))}
             </motion.nav>

@@ -1,0 +1,50 @@
+---
+import Wrapper from '../../layouts/Wrapper';
+import { Caption, Heading, Paragraph } from '../ui/typography';
+import qianhuiImage from '../../assets/qianhui.jpg';
+import { ItemInViewAnimation } from '../ui/InViewAnimation'
+import BlogCard from '../ui/BlogCard.astro';
+
+export const blogList = [{
+    title: "Personal Project Process of Qianhui",
+    slug: "1",
+    href: "https://oxidized-yamamomo-68e.notion.site/Personal-Project-Process-of-Qianhui-cbf4796a4f16403c9d19a57709c0ed07",
+    abstract: "This is my first blog",
+    date: "2023 Sep 4",
+    isVisible: true
+  }, {
+    title: "Blog 2",
+    slug: "2",
+    href: "",
+    abstract: "This is my second blog",
+    date: "2023 Sep 4",
+    isVisible: true
+  }
+]
+---
+
+<section
+  id="blogs"
+  class="relative z-10 w-full bg-slate-900"
+>
+  <Wrapper className='w-full border-b-[0.5px] border-neutral-600 py-28'>
+    <ItemInViewAnimation className="w-full flex flex-col items-center text-center" delay={0.1} client:visible >
+        <Caption>BLOGS</Caption>
+        <Heading className='text-neutral-50'>Exploring the HCI World</Heading>
+        <Wrapper>
+          <ul role="list" class="projectList gap-8 p-0 grid grid-cols-2">
+            {
+              blogList.map((blog, index) => 
+                blog.isVisible && <BlogCard
+                  href={blog.href}
+                  title={blog.title}
+                  abstract={blog.abstract}
+                  date={blog.date}
+                  slug={blog.slug}
+                />)
+            }
+          </ul>
+      </Wrapper>
+    </ItemInViewAnimation>
+  </Wrapper>
+</section>

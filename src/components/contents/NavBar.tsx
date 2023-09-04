@@ -52,13 +52,22 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
         <Wrapper className="flex flex-col items-center justify-between lg:flex-row">
           <div className="w-full grid grid-cols-3">
             <div className="flex items-center">
-            <ButtonLink
-              target='_blank'
-              href="https://drive.google.com/file/d/1h_XRQjizTTwRxbRRHvxCuOTYPoCwic8C/view?usp=sharing"
-              size="small"
-              isGhost
-            >DownLoad CV
-            </ButtonLink>
+              <ButtonLink
+                target='_blank'
+                href="https://drive.google.com/file/d/1h_XRQjizTTwRxbRRHvxCuOTYPoCwic8C/view?usp=sharing"
+                size="small"
+                isGhost
+                className='hidden lg:block'
+              >Download CV
+              </ButtonLink>
+              <ButtonLink
+                target='_blank'
+                href="https://drive.google.com/file/d/1h_XRQjizTTwRxbRRHvxCuOTYPoCwic8C/view?usp=sharing"
+                size="small"
+                isGhost
+                className='block lg:hidden'
+              >CV
+              </ButtonLink>
             </div>
             <div className="flex items-center justify-center">
               <a

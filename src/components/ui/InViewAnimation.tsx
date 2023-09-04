@@ -21,6 +21,7 @@ const ListInViewAnimation = (props: { children: ReactNode }) => {
           initial="hidden"
           animate="visible"
           variants={variants}
+          className={"w-full"}
         >
           {props.children}
         </motion.div>
@@ -43,6 +44,7 @@ const ItemInViewAnimation = (props: { children: ReactNode, delay?: number, class
           animate="visible"
           transition={{ duration: 1, delay: props.delay }}
           variants={{ visible: {opacity: 1, y: 0 }, hidden: {opacity: 0, y: 100 } }}
+          className={"w-full"}
         >
           {props.children}
         </motion.div>

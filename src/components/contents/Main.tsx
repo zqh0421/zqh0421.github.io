@@ -15,10 +15,13 @@ const Main = () => {
       "inset-0 transition duration-300 bg-slate-900"
     )}>
     <h1 className="w-11/12 lg:w-4/5 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
-      Empathy in Pixels
+      Empathy,
+    </h1>
+    <h1 className="w-11/12 lg:w-4/5 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
+      Tech,
     </h1>
     <h1 className="w-11/12 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
-      Innovation in Coding
+      Innovation
     </h1>
     <ButtonLink
       href="#hero"
