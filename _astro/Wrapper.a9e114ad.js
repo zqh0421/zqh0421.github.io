@@ -1,1 +1,0 @@
-import{c as s}from"./cn.5beeaabb.js";import{r as p}from"./index.03be2d59.js";import{j as t}from"./jsx-runtime.b9e88e07.js";const x=p.forwardRef(({children:r,className:a,...m},o)=>t.jsx("div",{className:s("mx-auto my-1/24 w-11/12 max-w-7xl 2xl:w-4/5 2xl:my-1/10",a),ref:o,...m,children:r}));x.displayName="Wrapper";export{x as W};
