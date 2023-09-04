@@ -1,0 +1,28 @@
+---
+import BasicLayout from '../layouts/BasicLayout.astro';
+import Blogs from '../components/contents/Blogs.astro';
+---
+<BasicLayout
+	title={`Blogs ― Qianhui`}
+	description={"The full blog list."}
+>
+	<Blogs />
+</BasicLayout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+</style>

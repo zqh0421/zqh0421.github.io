@@ -1,6 +1,6 @@
 ---
 import { projectList } from '../../components/contents/Projects.astro';
-import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import ProjectLayout from '../../layouts/BasicLayout.astro';
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../../components/ui/typography';
 import { ItemInViewAnimation } from '../../components/ui/InViewAnimation'
@@ -20,6 +20,7 @@ interface ProjectProps {
   location: string;
   tags: string[];
   cover: string;
+  content?: any;
 }
 
 export interface Props {
@@ -35,7 +36,7 @@ const { project } = Astro.props;
   title={`${project.title} ― Qianhui`}
   description={project.desc}
 >
-  <main id="main" class="bg-slate-900 text-neutral-50 w-full h-full">
+  <main id="main" class="bg-neutral-50 text-neutral-50 w-full h-full">
     <img src={project.cover} class="w-full" />
     <Wrapper className="h-full my-20 flex flex-col justify-center lg:my-0">
       <ItemInViewAnimation delay={0.1} client:visible >
@@ -49,6 +50,7 @@ const { project } = Astro.props;
           {project.desc}
         </Paragraph>
       </ItemInViewAnimation>
+      <!-- {project.content} -->
   </Wrapper>
   </main>
 </Layout>

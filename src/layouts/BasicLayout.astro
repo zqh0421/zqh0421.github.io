@@ -1,6 +1,7 @@
 ---
 import LoadingScreen from '../components/ui/LoadingScreen';
 import NavBar from '../components/contents/NavBar';
+import Contact from '../components/contents/Contact.astro';
 import Footer from '../components/contents/Footer';
 interface Props {
 	title: string;
@@ -11,7 +12,7 @@ const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth [color-scheme:dark]">
+<html lang="en" class="scroll-smooth [color-scheme:dark] bg-slate-900">
 	<head>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1Z9R2KPMR"></script>
@@ -29,10 +30,11 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="w-screen min-h-screen bg-slate-900">
+	<body class="w-screen min-h-screen">
 		<LoadingScreen client:load />
     <NavBar client:idle />
 		<slot />
+		<Contact />
     <Footer client:idle />
 	</body>
 </html>

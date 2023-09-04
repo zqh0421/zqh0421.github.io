@@ -1,23 +1,31 @@
 import useScroll from '../../hooks/useScroll';
 import useWindowSize from '../../hooks/useWindowSize';
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import Wrapper from '../../layouts/Wrapper';
 import { cn } from '../../utils/cn';
 import MobileNavigation from './MobileNav';
 import ButtonLink from '../ui/ButtonLink';
 
 export const menuItems = [
+  {
+		title: 'Home',
+		path: '/',
+	},
 	{
 		title: 'About',
-		path: 'about',
+		path: '/about',
+	},
+  {
+		title: 'Blogs',
+		path: '/blog',
 	},
 	{
 		title: 'Projects',
-		path: 'projects',
+		path: '/project',
 	},
 	{
 		title: 'Contact',
-		path: 'contact',
+		path: '#contact',
 	},
 ];
 
@@ -91,13 +99,14 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
               {menuItems.map((item, index) => (
                 <li className="items-center justify-center" key={index}>
                   <a
-                    href={'#' + item.path}
+                    // href={'#' + item.path}
+                    href={item.path}
                     className="relative py-1 text-sm uppercase text-neutral-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutral-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
-                    onClick={(event) => {
-                      event.preventDefault()
-                      const target = document.getElementById(item.path);
-                      target && target.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    // onClick={(event) => {
+                    //   event.preventDefault()
+                    //   const target = document.getElementById(item.path);
+                    //   target && target.scrollIntoView({ behavior: 'smooth' });
+                    // }}
                   >
                     {item.title}
                   </a>

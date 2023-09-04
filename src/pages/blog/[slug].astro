@@ -1,6 +1,6 @@
 ---
 import { blogList } from '../../components/contents/Blogs.astro';
-import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import ProjectLayout from '../../layouts/BasicLayout.astro';
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../../components/ui/typography';
 import { ItemInViewAnimation } from '../../components/ui/InViewAnimation'
@@ -33,7 +33,7 @@ const { blog } = Astro.props;
   title={`${blog.title} ― Qianhui`}
   description={blog.abstract}
 >
-  <main id="main" class="bg-slate-900 text-neutral-50 w-full h-full">
+  <main id="main" class="bg-neutral-50 text-neutral-50 w-full h-full">
     <Wrapper className="h-full my-20 flex flex-col justify-center lg:my-0">
       <ItemInViewAnimation delay={0.1} client:visible >
         <Caption>

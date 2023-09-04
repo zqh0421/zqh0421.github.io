@@ -63,13 +63,14 @@ function MobileNavigation({ isOpen = false, onClose, items }: MobileNavigationPr
               {items.map((item, index) => (
                 <a
                   key={index}
-                  href={'#' + item.path}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    const target = document.getElementById(item.path);
-                    target && target.scrollIntoView({ behavior: 'smooth' });
-                    onClose();
-                  }}
+                  href={item.path}
+                  // href={'#' + item.path}
+                  // onClick={(event) => {
+                  //   event.preventDefault();
+                  //   const target = document.getElementById(item.path);
+                  //   target && target.scrollIntoView({ behavior: 'smooth' });
+                  //   onClose();
+                  // }}
                   className={cn(
                     'py-2 uppercase text-neutral-200 transition-[letter-spacing,color]',
                     'hover:tracking-wider hover:text-neutral-50 focus-visible:tracking-wider focus-visible:text-neutral-50',

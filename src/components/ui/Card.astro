@@ -10,9 +10,10 @@ export interface Props {
   location: string;
   tags: string[];
   cover: string;
+  slug: string;
 }
 
-const { href, title, desc, time, location, tags, cover } = Astro.props;
+const { href, title, desc, time, location, tags, cover, slug } = Astro.props;
 
 const isStartWith = (fullStr: string, prefix: string) => {
   if (fullStr.length < prefix.length) return false
@@ -26,7 +27,7 @@ const isStartWith = (fullStr: string, prefix: string) => {
 ---
 <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
   <li class="card list-none flex p-[1px] bg-[color:#23262d] bg-[image:none] bg-[size:400%] bg-[position:100%] rounded-[7px] opacity-100">
-    <a href={href} target={isStartWith(href, "http") ? "_blank" : "_self"} class="w-full [text-decoration:none] leading-[1.4] p-[calc(1.5rem-1px)] rounded-lg bg-[#23262d] opacity-80 flex flex-col lg:grid lg:grid-cols-2 lg:gap-6">
+    <a href={"project/" + slug} target={isStartWith(href, "http") ? "_blank" : "_self"} class="w-full [text-decoration:none] leading-[1.4] p-[calc(1.5rem-1px)] rounded-lg bg-[#23262d] opacity-80 flex flex-col lg:grid lg:grid-cols-2 lg:gap-6">
       <img
         src={cover}
         class="aspect-video w-full rounded-[0.25rem] object-cover object-center"
