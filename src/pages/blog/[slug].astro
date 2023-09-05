@@ -2,8 +2,8 @@
 import { blogList } from '../../components/contents/Blogs.astro';
 import ProjectLayout from '../../layouts/BasicLayout.astro';
 import Wrapper from '../../layouts/Wrapper';
-import { Caption, Heading, Paragraph } from '../../components/ui/typography';
-import { ItemInViewAnimation } from '../../components/ui/InViewAnimation'
+import { Caption, Heading, Paragraph } from '../../components/typography';
+import { ItemInViewAnimation } from '../../components/InViewAnimation'
 
 export function getStaticPaths() {
   return blogList.map((blog) => ({
@@ -48,4 +48,4 @@ const { blog } = Astro.props;
       </ItemInViewAnimation>
   </Wrapper>
   </main>
-</Layout>
+</Layout>../../contents/Blogs.astro

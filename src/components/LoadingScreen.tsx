@@ -1,4 +1,4 @@
-import useLockBody from '../../hooks/useBodyLock';
+import useLockBody from '../hooks/useBodyLock';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from './Image'

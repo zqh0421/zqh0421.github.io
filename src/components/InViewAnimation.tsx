@@ -1,6 +1,6 @@
 import { useInView, motion } from "framer-motion"
 import { useRef, useEffect, type ReactNode } from 'react'
-import { cn } from "../../utils/cn"
+import { cn } from "../utils/cn"
 
 const ListInViewAnimation = (props: { children: ReactNode }) => {
   const ref = useRef(null)

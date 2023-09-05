@@ -1,16 +1,19 @@
 ---
-import Wrapper from '../../layouts/Wrapper';
+import Wrapper from '../layouts/Wrapper';
 import { ItemInViewAnimation } from './InViewAnimation';
 import { Paragraph } from './typography';
 export interface Props {
 	title: string;
-	abstract: string;
+	desc: string;
 	href: string;
-  date: string;
+  time: string;
+  location: string;
+  tags: string[];
+  cover: string;
   slug: string;
 }
 
-const { href, title, abstract, date, slug } = Astro.props;
+const { href, title, desc, time, location, tags, cover, slug } = Astro.props;
 
 const isStartWith = (fullStr: string, prefix: string) => {
   if (fullStr.length < prefix.length) return false
@@ -22,22 +25,30 @@ const isStartWith = (fullStr: string, prefix: string) => {
   return true
 }
 ---
-<ItemInViewAnimation className="w-full flex flex-col items-center text-center" delay={0.1} client:visible >
-  <li class="card list-none w-full flex p-[1px] bg-[color:#23262d] bg-[image:none] bg-[size:400%] bg-[position:100%] rounded-[7px] opacity-100">
-    <a href={href ? href : "blog/" + slug} target={isStartWith(href, "http") ? "_blank" : "_self"} class="w-full [text-decoration:none] leading-[1.4] p-[calc(1.5rem-1px)] rounded-lg bg-[#23262d] opacity-80 flex flex-col">
-      <Wrapper className="h-full w-full my-10 flex flex-col justify-center items-center lg:my-0">
+<ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
+  <li class="card list-none flex p-[1px] bg-[color:#23262d] bg-[image:none] bg-[size:400%] bg-[position:100%] rounded-[7px] opacity-100">
+    <a href={"project/" + slug} target={isStartWith(href, "http") ? "_blank" : "_self"} class="w-full [text-decoration:none] leading-[1.4] p-[calc(1.5rem-1px)] rounded-lg bg-[#23262d] opacity-80 flex flex-col lg:grid lg:grid-cols-2 lg:gap-6">
+      <img
+        src={cover}
+        class="aspect-video w-full rounded-[0.25rem] object-cover object-center"
+      />
+      <Wrapper className="h-full my-10 flex flex-col justify-center lg:my-0">
         <h2 class="m-0 text-md lg:text-xl font-semibold tracking-wide text-neutral-50">
           {title}
           <span>&rarr;</span>
         </h2>
         <Paragraph className="mt-2 mb-0 text-neutral-50">
-          {abstract}
+          {desc}
         </Paragraph>
+        <ul class="flex justify-center items-center mt-2 flex-wrap leading-loose">
+          {
+            tags.map(tag => <li class="tag rounded-3xl text-center mr-2 mt-2 tracking-wide h-6 px-3 py-1.5 text-xs/3 lg:h-8 lg:px-4 lg:py-2 lg:text-sm/4">{tag}</li>)
+          }
+        </ul>
       </Wrapper>
     </a>
   </li>
 </ItemInViewAnimation>
-
 <style>
 	.card {
 		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);

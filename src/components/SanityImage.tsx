@@ -1,5 +1,5 @@
-import { generateImageSizeProps, type Image } from '../../utils/santiyImage';
-import { ElementRef, forwardRef, HTMLAttributes } from 'react';
+import { generateImageSizeProps, type Image } from '../utils/santiyImage';
+import { type ElementRef, forwardRef, type HTMLAttributes } from 'react';
 
 type SanityImageHTMLElement = ElementRef<'img'>;
 

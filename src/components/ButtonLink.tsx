@@ -1,7 +1,7 @@
 import { buttonVariants } from './Button';
-import { cn } from '../../utils/cn';
+import { cn } from '../utils/cn';
 import type { VariantProps } from 'class-variance-authority';
-import { AnchorHTMLAttributes, ElementRef, ReactNode, forwardRef } from 'react';
+import { type AnchorHTMLAttributes, type ElementRef, type ReactNode, forwardRef } from 'react';
 
 type ButtonLinkHTMLElement = ElementRef<'a'>;
 

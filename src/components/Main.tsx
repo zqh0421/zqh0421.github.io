@@ -1,6 +1,6 @@
-import ButtonLink from '../ui/ButtonLink'
-import { cn } from '../../utils/cn';
-import useMouseMove from '../../hooks/useMouseMove'
+import ButtonLink from '../components/ui/ButtonLink'
+import { cn } from '../utils/cn';
+import useMouseMove from '../hooks/useMouseMove'
 import { useEffect } from 'react';
 
 const Main = () => {

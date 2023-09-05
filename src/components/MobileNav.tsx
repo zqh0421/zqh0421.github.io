@@ -1,6 +1,6 @@
-import Wrapper from '../../layouts/Wrapper';
-import useLockBody from '../../hooks/useBodyLock';
-import { cn } from '../../utils/cn';
+import Wrapper from '../layouts/Wrapper';
+import useLockBody from '../hooks/useBodyLock';
+import { cn } from '../utils/cn';
 import { AnimatePresence, motion, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
 

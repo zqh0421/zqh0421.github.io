@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import siteConfig from '../../utils/site';
-import Wrapper from '../../layouts/Wrapper';
+import siteConfig from '../utils/site';
+import Wrapper from '../layouts/Wrapper';
 
 const socialMedia = [
   {

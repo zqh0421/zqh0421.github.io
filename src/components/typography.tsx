@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn';
+import { cn } from '../utils/cn';
 import type { ElementRef, HTMLAttributes, ReactNode } from 'react';
 
 interface HeadingProps extends HTMLAttributes<ElementRef<'h2'>> {

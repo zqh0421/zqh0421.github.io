@@ -1,10 +1,10 @@
-import useScroll from '../../hooks/useScroll';
-import useWindowSize from '../../hooks/useWindowSize';
+import useScroll from '../hooks/useScroll';
+import useWindowSize from '../hooks/useWindowSize';
 import { type ReactNode, useState } from 'react';
-import Wrapper from '../../layouts/Wrapper';
-import { cn } from '../../utils/cn';
+import Wrapper from '../layouts/Wrapper';
+import { cn } from '../utils/cn';
 import MobileNavigation from './MobileNav';
-import ButtonLink from '../ui/ButtonLink';
+import ButtonLink from '../components/ui/ButtonLink';
 
 export const menuItems = [
   {
