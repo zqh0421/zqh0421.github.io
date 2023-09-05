@@ -38,7 +38,7 @@ const { project } = Astro.props;
   title={`${project.title} ― Qianhui`}
   description={project.desc}
 >
-  <article id="article" class="bg-neutral-50 w-full h-full">
+  <main id="main" class="bg-neutral-50 w-full h-full">
     <Wrapper className='border-b-[0.5px] border-neutral-600 py-28'>
       <ItemInViewAnimation className="flex flex-col items-center text-center justify-center" delay={0.1} client:visible >
           <Caption>{project.location}</Caption>
@@ -54,5 +54,5 @@ const { project } = Astro.props;
         null
       }
     </Wrapper>
-  </article>
-</BasicLayout>../../contents/Projects.astro../../contents/projects/ShortestContent.astro
+  </main>
+</BasicLayout>

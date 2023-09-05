@@ -1,3 +1,62 @@
-<div>
-  Find Shortest Path
-</div>
+---
+import Wrapper from "../../../layouts/Wrapper";
+import ButtonLink from "../../ButtonLink";
+import { ItemInViewAnimation } from "../../InViewAnimation";
+import { Heading, Paragraph } from "../../typography";
+---
+
+<Wrapper className="text-center md:text-left md: grid md:grid-cols-2 my-28">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Overview</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center items-center" delay={0.1} client:visible >
+    <Paragraph>Period: Mar 2022 - May 2022</Paragraph>
+    <Paragraph>Location: Beijing University of Chemical Technology</Paragraph>
+    <div class="flex flex-row gap-6 items-center justify-center md:justify-normal">
+      <ButtonLink
+        target='_blank'
+        href="https://github.com/zqh0421/Find-Shortest-Path"
+        size="small"
+        background="callout"
+        foreground="callout"
+        className="mt-2 w-fit"
+        isGhost
+      >
+        Source Code
+      </ButtonLink>
+  </div>
+  </ItemInViewAnimation>
+</Wrapper>
+<Wrapper className="md:grid text-center md:text-left md:grid-cols-2 my-28">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Abstract</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Paragraph>TODO</Paragraph>
+  </ItemInViewAnimation>
+</Wrapper>
+
+<Wrapper className="md:grid md:grid-cols-2 text-center md:text-left">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Demo</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center hidden md:block" delay={0.1} client:visible >
+  </ItemInViewAnimation>
+</Wrapper>
+
+<Wrapper className="mb-28">
+  <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
+    <Paragraph>TODO (Demo Video)</Paragraph>
+  </ItemInViewAnimation>
+</Wrapper>
+
+<Wrapper className="md:grid text-center md:text-left md:grid-cols-2 my-28">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Personal Thoughts</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Paragraph>
+      TODO
+    </Paragraph>
+  </ItemInViewAnimation>
+</Wrapper>
