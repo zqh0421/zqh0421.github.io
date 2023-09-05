@@ -1,10 +1,10 @@
 ---
-import { projectList } from '../../components/contents/Projects.astro';
+import { projectList } from '../../contents/Projects.astro';
 import BasicLayout from '../../layouts/BasicLayout.astro';
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../../components/typography';
 import { ItemInViewAnimation } from '../../components/InViewAnimation'
-import ShortestContent from '../../components/contents/projects/ShortestContent.astro'
+import ShortestContent from '../../contents/projects/ShortestContent.astro'
 
 export function getStaticPaths() {
   return projectList.map((project) => ({

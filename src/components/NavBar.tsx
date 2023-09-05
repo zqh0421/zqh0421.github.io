@@ -4,7 +4,7 @@ import { type ReactNode, useState } from 'react';
 import Wrapper from '../layouts/Wrapper';
 import { cn } from '../utils/cn';
 import MobileNavigation from './MobileNav';
-import ButtonLink from '../components/ui/ButtonLink';
+import ButtonLink from '../components/ButtonLink';
 
 export const menuItems = [
   {
