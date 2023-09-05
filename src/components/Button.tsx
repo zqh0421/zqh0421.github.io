@@ -8,12 +8,13 @@ const buttonVariants = cva(
     variants: {
       foreground: {
         default: 'border-neutral-50',
-        primary: 'border-primary',
-        error: 'border-error',
+        primary: 'border-neutral-50',
+        callout: 'border-blue-500'
       },
       background: {
         default: '',
         primary: '',
+        callout: 'border-blue-500'
       },
       size: {
         small: 'px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-base',
@@ -37,12 +38,23 @@ const buttonVariants = cva(
         isGhost: true,
         background: 'primary',
         className:
-          'hover:[&:not(:disabled)]:text-slate-900 focus-visible:text-slate-900',
+          'hover:[&:not(:disabled)]:text-slate-900 focus-visible:text-neutral-50',
       },
       {
         isGhost: true,
         foreground: 'primary',
         className: 'text-slate-900 before:bg-neutral-50',
+      },
+      {
+        isGhost: true,
+        background: 'callout',
+        className:
+          'hover:[&:not(:disabled)]:text-neutral-50 focus-visible:text-neutral-50',
+      },
+      {
+        isGhost: true,
+        foreground: 'callout',
+        className: 'text-blue-500 before:bg-blue-500',
       },
       {
         isGhost: false,
@@ -70,18 +82,7 @@ const buttonVariants = cva(
         isGhost: false,
         background: 'default',
         className: 'text-slate-900 before:bg-slate-900',
-      },
-      {
-        isGhost: false,
-        foreground: 'error',
-        className:
-          'bg-error hover:[&:not(:disabled)]:text-error focus-visible:text-error',
-      },
-      {
-        isGhost: true,
-        foreground: 'error',
-        className: 'text-error before:bg-error',
-      },
+      }
     ],
     defaultVariants: {
       foreground: 'default',

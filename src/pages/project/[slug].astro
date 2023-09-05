@@ -5,6 +5,7 @@ import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../../components/typography';
 import { ItemInViewAnimation } from '../../components/InViewAnimation'
 import ShortestContent from '../../components/contents/projects/ShortestContent.astro'
+import CodegptContent from '../../components/contents/projects/CodegptContent.astro';
 
 export function getStaticPaths() {
   return projectList.map((project) => ({
@@ -49,6 +50,7 @@ const { project } = Astro.props;
       </ItemInViewAnimation>
       {
         slug === "shortest" ? <ShortestContent /> :
+        slug === "codegpt" ? <CodegptContent /> :
         null
       }
     </Wrapper>

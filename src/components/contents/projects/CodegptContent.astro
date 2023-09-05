@@ -1,0 +1,66 @@
+---
+import Wrapper from "../../../layouts/Wrapper";
+import ButtonLink from "../../ButtonLink";
+import { ItemInViewAnimation } from "../../InViewAnimation";
+import { Heading, Paragraph } from "../../typography";
+---
+
+<Wrapper className="text-center md:text-left md: grid md:grid-cols-2 my-28">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Overview</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center items-center" delay={0.1} client:visible >
+    <Paragraph>Period: Jan 2023 - Feb 2023</Paragraph>
+    <Paragraph>Advisor: Dr. Xu Liu</Paragraph>
+    <Paragraph>Location: North Carolina State University (Remote)</Paragraph>
+    <div class="flex flex-row gap-6 items-center justify-center md:justify-normal">
+      <ButtonLink
+        target='_blank'
+        href="https://github.com/zqh0421/codegpt"
+        size="small"
+        background="callout"
+        foreground="callout"
+        className="mt-2 w-fit"
+        isGhost
+      >
+        Source Code
+      </ButtonLink>
+      <ButtonLink
+        target='_blank'
+        href="https://zqh0421.github.io/codegpt"
+        size="small"
+        background="callout"
+        foreground="callout"
+        className="mt-2 w-fit"
+        isGhost
+      >
+      Demo
+    </ButtonLink>
+  </div>
+  </ItemInViewAnimation>
+</Wrapper>
+<Wrapper className="md:grid text-center md:text-left md:grid-cols-2 my-28">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Abstract</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Paragraph>Even though a series of codes can achieve the same functions, their differences in composition and algorithm make them different in execution efficiency.</Paragraph>
+    <Paragraph>Recently, OpenAI has released an AI-powered language model called <b>ChatGPT</b>, which can understand human language and answer questions. With its suggestions, we aim to optimize code performance more efficiently.</Paragraph>
+    <Paragraph>In our project, we developed a website based on <b>open-source APIs</b> to display and revise code from Internet. <b>LSP (Language Server Protocol)</b> integrated in our code editor will implement support for finding all references and locating function body on focus, and thus to identify specific functions that require to be optimized.</Paragraph>
+    <Paragraph>After accomplishing the development stage, we applied it to open-source code to evaluate and improve the web page experience and to optimize the performance of the programming code.</Paragraph>
+  </ItemInViewAnimation>
+</Wrapper>
+
+<Wrapper className="md:grid md:grid-cols-2 text-center md:text-left">
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <Heading>Poster</Heading>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center hidden md:block" delay={0.1} client:visible >
+  </ItemInViewAnimation>
+</Wrapper>
+
+<Wrapper className="mb-28">
+  <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
+    <img src={'https://pic-lib-z.oss-cn-beijing.aliyuncs.com/portfolio/GearsPoster.jpeg'} class="w-full md:mt-8" />
+  </ItemInViewAnimation>
+</Wrapper>
