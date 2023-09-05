@@ -1,5 +1,5 @@
 import { cn } from '../utils/cn';
-import { ElementRef, HTMLAttributes, ReactNode, forwardRef } from 'react';
+import { type ElementRef, type HTMLAttributes, type ReactNode, forwardRef } from 'react';
 
 type WrapperHTMLElement = ElementRef<'div'>;
 
