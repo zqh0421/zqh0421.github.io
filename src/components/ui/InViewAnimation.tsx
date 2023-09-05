@@ -1,14 +1,10 @@
 import { useInView, motion } from "framer-motion"
-import { useRef, useEffect, ReactNode } from 'react'
+import { useRef, useEffect, type ReactNode } from 'react'
 import { cn } from "../../utils/cn"
 
 const ListInViewAnimation = (props: { children: ReactNode }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    console.log("Element is in view: ", isInView)
-  }, [isInView])
 
   const variants = {
     visible: { opacity: 1 },
@@ -32,10 +28,6 @@ const ListInViewAnimation = (props: { children: ReactNode }) => {
 const ItemInViewAnimation = (props: { children: ReactNode, delay?: number, className?: string }) => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    console.log("Element is in view: ", isInView)
-  }, [isInView])
 
   return (
     <div ref={ref} className={cn("text-slate-900", props.className)}>

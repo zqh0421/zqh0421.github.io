@@ -1,9 +1,10 @@
 ---
 import { projectList } from '../../components/contents/Projects.astro';
-import ProjectLayout from '../../layouts/BasicLayout.astro';
+import BasicLayout from '../../layouts/BasicLayout.astro';
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading, Paragraph } from '../../components/ui/typography';
 import { ItemInViewAnimation } from '../../components/ui/InViewAnimation'
+import ShortestContent from '../../components/contents/projects/ShortestContent.astro'
 
 export function getStaticPaths() {
   return projectList.map((project) => ({
@@ -32,25 +33,24 @@ const { project } = Astro.props;
 
 ---
 
-<ProjectLayout
+<BasicLayout
   title={`${project.title} ― Qianhui`}
   description={project.desc}
 >
-  <main id="main" class="bg-neutral-50 text-neutral-50 w-full h-full">
-    <img src={project.cover} class="w-full" />
-    <Wrapper className="h-full my-20 flex flex-col justify-center lg:my-0">
-      <ItemInViewAnimation delay={0.1} client:visible >
-        <Caption>
-          {project.location}
-        </Caption>
-        <Heading className='text-neutral-50'>
-          {project.title}
-        </Heading>
-        <Paragraph className='text-neutral-50'>
-          {project.desc}
-        </Paragraph>
+  <article id="article" class="bg-neutral-50 w-full h-full">
+    <Wrapper className='border-b-[0.5px] border-neutral-600 py-28'>
+      <ItemInViewAnimation className="flex flex-col items-center text-center justify-center" delay={0.1} client:visible >
+          <Caption>{project.location}</Caption>
+          <Heading>{project.title}</Heading>
+          <Paragraph className={'inline-block'}>{project.desc}</Paragraph>
       </ItemInViewAnimation>
-      <!-- {project.content} -->
-  </Wrapper>
-  </main>
-</Layout>
+      <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
+        <img src={project.cover} class="w-full my-8" />
+      </ItemInViewAnimation>
+      {
+        slug === "shortest" ? <ShortestContent /> :
+        null
+      }
+    </Wrapper>
+  </article>
+</BasicLayout>

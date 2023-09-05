@@ -34,7 +34,7 @@ const { title } = Astro.props;
 	</head>
 	<body class="w-screen">
 		<LoadingScreen client:load />
-		<NavBar client:idle isInitialBackgroundTransparent={false} />
+		<NavBar client:idle isInitialBackgroundTransparent={true} />
 		<Main client:idle />
 		<Hero />
 		<slot />

@@ -36,7 +36,7 @@ function Footer() {
   return (
     <footer
       aria-label="Primary"
-      className="relative z-10 w-full bg-slate-900 py-10"
+      className="relative z-10 w-full bg-neutral-900 py-10"
     >
       <Wrapper>
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
