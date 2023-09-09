@@ -1,4 +1,5 @@
 ---
+import "@fontsource/lato";
 import LoadingScreen from '../components/LoadingScreen';
 import NavBar from '../components/NavBar';
 import Main from '../components/Main';
@@ -20,7 +21,6 @@ const { title } = Astro.props;
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-
 			gtag('config', 'G-S1Z9R2KPMR');
 		</script>
 		<meta charset="UTF-8" />
@@ -48,7 +48,7 @@ const { title } = Astro.props;
 		color-scheme: dark;
 	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: Lato, system-ui, sans-serif;
 		background: #13151A;
 		background-size: 224px;
 	}
