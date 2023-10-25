@@ -4,5 +4,5 @@ ports:
 tasks:
 - before: >
     export DEV_HOST=$(gp url 5678)
-  init: npm install
-  command: npm run dev
+  init: pnpm install
+  command: pnpm dev
