@@ -4,6 +4,10 @@ module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			gridTemplateColumns: {
+        // 添加自定义的列宽比例
+        'project': '1fr 3fr',
+      },
 			fontFamily: {
         sans: ["Lato", "Inter", ...defaultTheme.fontFamily.sans],
 				colors: {

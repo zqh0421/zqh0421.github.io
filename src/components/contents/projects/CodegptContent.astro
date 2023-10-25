@@ -1,83 +1,88 @@
 ---
 import Wrapper from "../../../layouts/Wrapper";
 import ButtonLink from "../../ButtonLink";
-import { ItemInViewAnimation } from "../../InViewAnimation";
-import { Heading, Paragraph } from "../../typography";
+import { Heading, Paragraph, SubHeading, Caption } from "../../typography";
+import SideNav, { type NavItem } from "../../SideNav.astro";
+import Section from "../../Section.astro";
+import type { ReactNode } from "react";
+
+export interface Content {
+  type: "paragraph" | "html" | "btn-group"
+  content: ReactNode
+}
+
+export interface SectionContent {
+  id: string
+  subTitle: string
+  title: string
+  content: Content[]
+}
+
+const items: NavItem[] = [
+  { id: "codegpt-overview", title: "Overview" },
+  { id: "codegpt-abstract", title: "Abstract" }
+]
 ---
 
-<Wrapper className="text-center md:text-left md: grid md:grid-cols-2 my-28">
-  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
-    <Heading>Overview</Heading>
-  </ItemInViewAnimation>
-  <ItemInViewAnimation className="tems-center items-center" delay={0.1} client:visible >
-    <Paragraph>Period: Jan 2023 - Feb 2023</Paragraph>
-    <Paragraph>Advisor: Dr. Xu Liu</Paragraph>
-    <Paragraph>Location: North Carolina State University (Remote)</Paragraph>
-    <div class="flex flex-row gap-6 items-center justify-center md:justify-normal">
-      <ButtonLink
-        target='_blank'
-        href="https://github.com/zqh0421/codegpt"
-        size="small"
-        background="callout"
-        foreground="callout"
-        className="mt-2 w-fit"
-        isGhost
+<Wrapper className="grid grid-cols-project">
+  <SideNav items={items} />
+  <Wrapper>
+    <Section id="codegpt-overview">
+      <Caption slot="title" className="mb-0">Overview</Caption>
+      <SubHeading slot="title">Applying ChatGPT/OpenAI to suggest code performance optimization</SubHeading>
+      <Paragraph slot="content">Period: Jan 2023 - Feb 2023</Paragraph>
+      <Paragraph slot="content">Advisor: Dr. Xu Liu</Paragraph>
+      <Paragraph slot="content">Location: North Carolina State University (Remote)</Paragraph>
+      <div
+        slot="content"
+        class="flex flex-row gap-6 items-center justify-center md:justify-normal"
       >
-        Source Code
+        <ButtonLink
+          target='_blank'
+          href="https://github.com/zqh0421/codegpt"
+          size="small"
+          background="callout"
+          foreground="callout"
+          className="mt-2 w-fit"
+          isGhost
+        >
+          Source Code
+        </ButtonLink>
+        <ButtonLink
+          target='_blank'
+          href="https://zqh0421.github.io/codegpt"
+          size="small"
+          background="callout"
+          foreground="callout"
+          className="mt-2 w-fit"
+          isGhost
+        >
+        Demo
       </ButtonLink>
-      <ButtonLink
-        target='_blank'
-        href="https://zqh0421.github.io/codegpt"
-        size="small"
-        background="callout"
-        foreground="callout"
-        className="mt-2 w-fit"
-        isGhost
-      >
-      Demo
-    </ButtonLink>
-  </div>
-  </ItemInViewAnimation>
-</Wrapper>
-<Wrapper className="md:grid text-center md:text-left md:grid-cols-2 my-28">
-  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
-    <Heading>Abstract</Heading>
-  </ItemInViewAnimation>
-  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
-    <Paragraph>Even though a series of codes can achieve the same functions, their differences in composition and algorithm make them different in execution efficiency.</Paragraph>
-    <Paragraph>Recently, OpenAI has released an AI-powered language model called <b>ChatGPT</b>, which can understand human language and answer questions. With its suggestions, we aim to optimize code performance more efficiently.</Paragraph>
-    <Paragraph>In our project, we developed a website based on <b>open-source APIs</b> to display and revise code from Internet. <b>LSP (Language Server Protocol)</b> integrated in our code editor will implement support for finding all references and locating function body on focus, and thus to identify specific functions that require to be optimized.</Paragraph>
-    <Paragraph>After accomplishing the development stage, we applied it to open-source code to evaluate and improve the web page experience and to optimize the performance of the programming code.</Paragraph>
-  </ItemInViewAnimation>
-</Wrapper>
+    </div>
+    </Section>
+    <Section id="codegpt-abstract">
+      <SubHeading slot="title">Abstract</SubHeading>
+      <Paragraph slot="content">Even though a series of codes can achieve the same functions, their differences in composition and algorithm make them different in execution efficiency.</Paragraph>
+      <Paragraph slot="content">Recently, OpenAI has released an AI-powered language model called <b>ChatGPT</b>, which can understand human language and answer questions. With its suggestions, we aim to optimize code performance more efficiently.</Paragraph>
+      <Paragraph slot="content">In our project, we developed a website based on <b>open-source APIs</b> to display and revise code from Internet. <b>LSP (Language Server Protocol)</b> integrated in our code editor will implement support for finding all references and locating function body on focus, and thus to identify specific functions that require to be optimized.</Paragraph>
+      <Paragraph slot="content">After accomplishing the development stage, we applied it to open-source code to evaluate and improve the web page experience and to optimize the performance of the programming code.</Paragraph>
+    </Section>
+    
+    <Section>
+      <SubHeading slot="title">Poster</SubHeading>
+      <img
+        slot="content"
+        src={'https://pic-lib-z.oss-cn-beijing.aliyuncs.com/portfolio/GearsPoster.jpeg'}
+        class="w-full md:mt-8"
+      />
+    </Section>
 
-<Wrapper className="md:grid md:grid-cols-2 text-center md:text-left">
-  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
-    <Heading>Poster</Heading>
-  </ItemInViewAnimation>
-  <ItemInViewAnimation className="tems-center hidden md:block" delay={0.1} client:visible >
-  </ItemInViewAnimation>
-</Wrapper>
-
-<Wrapper className="mb-28">
-  <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
-    <img src={'https://pic-lib-z.oss-cn-beijing.aliyuncs.com/portfolio/GearsPoster.jpeg'} class="w-full md:mt-8" />
-  </ItemInViewAnimation>
-</Wrapper>
-
-<Wrapper className="md:grid text-center md:text-left md:grid-cols-2 my-28">
-  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
-    <Heading>Personal Thoughts</Heading>
-  </ItemInViewAnimation>
-  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
-    <Paragraph>
-      Although the duration of this project was short (about 2 months), it was actually the first real research project related to human-computer interaction (HCI) that I embarked on. It was through this project that the door to the HCI research field was opened for me.
-    </Paragraph>
-    <Paragraph>
-      In previous projects, even though I gradually considered user needs during the development process, the focus was still more on fulfilling functional requirements or getting algorithms to work. This was the first time I developed with the premise of considering what users might need.
-    </Paragraph>
-    <Paragraph>
-      Inspired by the professor Dr. Liu, who directly advised us for this project, I also began to think more about how to inject innovative ideas into the project, rather than simply focusing on engineering tasks.
-    </Paragraph>
-  </ItemInViewAnimation>
+    <Section>
+      <SubHeading slot="title">Retrospective</SubHeading>
+      <Paragraph slot="content">Although the duration of this project was short (about 2 months), it was actually the first real research project related to human-computer interaction (HCI) that I embarked on. It was through this project that the door to the HCI research field was opened for me.</Paragraph>
+      <Paragraph slot="content">In previous projects, even though I gradually considered user needs during the development process, the focus was still more on fulfilling functional requirements or getting algorithms to work. This was the first time I developed with the premise of considering what users might need.</Paragraph>
+      <Paragraph slot="content">Inspired by the professor Dr. Liu, who directly advised us for this project, I also began to think more about how to inject innovative ideas into the project, rather than simply focusing on engineering tasks.
+    </Section>
+  </Wrapper>
 </Wrapper>

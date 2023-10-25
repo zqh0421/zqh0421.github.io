@@ -1,0 +1,29 @@
+---
+import Wrapper from "../layouts/Wrapper";
+import { ListInViewAnimation } from "./InViewAnimation";
+
+export interface NavItem {
+  id: string
+  title: string
+}
+
+const { items } = Astro.props;
+---
+<Wrapper className="sticky pt-80">
+  
+  <ul class="sticky top-80">
+    {
+      items.map((item: NavItem) => {
+        return (
+          <li>
+            <ListInViewAnimation client:visible >
+            <a href={"#" + item.id} class="text-sm text-blue-500 uppercase leading-relaxed">— {item.title}</a>
+          </ListInViewAnimation>
+          </li>
+        )
+      })
+    }
+    
+  </ul>
+
+</Wrapper>

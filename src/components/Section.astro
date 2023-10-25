@@ -1,0 +1,23 @@
+---
+import SectionWrapper from "../layouts/SectionWrapper";
+import { ItemInViewAnimation } from "./InViewAnimation";
+
+const { id } = Astro.props;
+---
+
+<SectionWrapper className="section mt-20 flex flex-col text-left my-12" id={id}>
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <slot name="title"/>
+  </ItemInViewAnimation>
+  <ItemInViewAnimation className="tems-center" delay={0.1} client:visible >
+    <slot name="content"/>
+  </ItemInViewAnimation>
+</SectionWrapper>
+
+<style>
+  .section::before {
+    content: "";
+    display: block;
+    height: 80px; /* 顶部栏的高度 */
+  }
+</style>

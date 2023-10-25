@@ -39,7 +39,7 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
   const windowSize = useWindowSize();
   const { scrollY } = useScroll();
 
-  const hasScrolledPastHeroSection = scrollY > windowSize.height - 1;
+  const hasScrolledPastHeroSection = scrollY > windowSize.height - 60;
 
   const isBackgroundShown =
     !isInitialBackgroundTransparent ||

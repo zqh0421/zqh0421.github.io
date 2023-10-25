@@ -9,7 +9,7 @@ function Heading({ children, className, ...props }: HeadingProps) {
   return (
     <h2
       className={cn(
-        'mb-6 text-3xl font-bold leading-tight text-slate-900 md:text-5xl',
+        'mb-6 text-2xl font-bold leading-tight text-slate-900 md:text-4xl',
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ interface ParagraphProps extends HTMLAttributes<ElementRef<'p'>> {
 function Paragraph({ children, className, ...props }: ParagraphProps) {
   return (
     <p
-      className={cn('max-w-prose leading-relaxed text-slate-600', className)}
+      className={cn('max-w-prose leading-relaxed text-slate-600 mb-2', className)}
       {...props}
     >
       {children}
@@ -52,4 +52,29 @@ function Paragraph({ children, className, ...props }: ParagraphProps) {
   );
 }
 
-export { Caption, Heading, Paragraph };
+function SubHeading({ children, className, ...props }: HeadingProps) {
+  return (
+    <h2
+      className={cn(
+        'mb-6 text-base font-bold leading-tight uppercase text-slate-900 md:text-2xl',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </h2>
+  );
+}
+
+function Note({ children, className, ...props }: ParagraphProps) {
+  return (
+    <p
+      className={cn('max-w-prose leading-relaxed text-blue-300 mb-2 text-sm ', className)}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+}
+
+export { Caption, Heading, Paragraph, SubHeading, Note };
