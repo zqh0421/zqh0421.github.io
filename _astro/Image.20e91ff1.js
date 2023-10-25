@@ -1,1 +1,0 @@
-import{j as a}from"./jsx-runtime.b9e88e07.js";import{r as t}from"./index.03be2d59.js";const g=t.forwardRef(({metadata:r,alt:s,isAboveTheFold:e=!1,...i},o)=>a.jsx("img",{src:r.src,width:r.width,height:r.height,alt:s,loading:e?"eager":"lazy",decoding:"async",ref:o,...i}));g.displayName="Image";export{g as default};
