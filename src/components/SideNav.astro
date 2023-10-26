@@ -9,21 +9,23 @@ export interface NavItem {
 
 const { items } = Astro.props;
 ---
-<Wrapper className="sticky pt-80">
-  
-  <ul class="sticky top-80">
+
+<Wrapper className="sticky pt-40">
+  <ListInViewAnimation
+    className="sticky top-40 flex flex-col"
+    client:visible
+  >
     {
       items.map((item: NavItem) => {
         return (
-          <li>
-            <ListInViewAnimation client:visible >
-            <a href={"#" + item.id} class="text-sm text-blue-500 uppercase leading-relaxed">— {item.title}</a>
-          </ListInViewAnimation>
-          </li>
+          <a
+            href={"#" + item.id}
+            class="block text-sm text-blue-500 uppercase leading-relaxed"
+          >
+            — {item.title}
+          </a>
         )
       })
     }
-    
-  </ul>
-
+  </ListInViewAnimation>
 </Wrapper>

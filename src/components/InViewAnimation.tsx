@@ -1,21 +1,29 @@
 import { useInView, motion } from "framer-motion"
-import { useRef, useEffect, type ReactNode } from 'react'
+import { useRef, useEffect, useState, type ReactNode } from 'react'
 import { cn } from "../utils/cn"
 
 const ListInViewAnimation = (props: { children: ReactNode, delay?: number, className?: string }) => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref)
+  const [animate, setAnimate] = useState("visible")
+  const [variants, setVariants] = useState({})
 
-  const variants = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  }
+  useEffect(() => {
+    console.log(isInView)
+    if (isInView) {
+      setAnimate("visible")
+    } else {
+      setAnimate("hidden")
+    }
+  }, [isInView])
 
   return (
-    <div ref={ref} className={cn("text-slate-900", props.className)}>
+    <div  className={cn("text-slate-900", props.className)}>
+      <div ref={ref}></div>
+      <div className="h-20"></div>
       <motion.div
         initial="hidden"
-        animate="visible"
+        animate={animate}
         transition={{ duration: 1, delay: props.delay }}
         variants={{ visible: {opacity: 1, x: 0 }, hidden: {opacity: 0, x: -100 } }}
         className={"w-full"}
@@ -31,7 +39,7 @@ const ItemInViewAnimation = (props: { children: ReactNode, delay?: number, class
   const isInView = useInView(ref, { once: true })
 
   return (
-    <div ref={ref} className={cn("text-slate-900", props.className)}>
+    <div className={cn("text-slate-900", props.className)}>
       <motion.div
         initial="hidden"
         animate="visible"
@@ -44,4 +52,5 @@ const ItemInViewAnimation = (props: { children: ReactNode, delay?: number, class
     </div>
   );
 }
+
 export { ListInViewAnimation, ItemInViewAnimation };
