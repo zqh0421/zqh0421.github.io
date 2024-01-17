@@ -20,7 +20,9 @@ export interface SectionContent {
 
 const items: NavItem[] = [
   { id: "codegpt-overview", title: "Overview" },
-  { id: "codegpt-abstract", title: "Abstract" }
+  { id: "codegpt-abstract", title: "Abstract" },
+  { id: "codegpt-poster", title: "Poster" },
+  // { id: "codegpt-retrospective", title: "Retrospective" }
 ]
 ---
 
@@ -69,7 +71,7 @@ const items: NavItem[] = [
       <Paragraph slot="content">After accomplishing the development stage, we applied it to open-source code to evaluate and improve the web page experience and to optimize the performance of the programming code.</Paragraph>
     </Section>
     
-    <Section>
+    <Section id="codegpt-poster">
       <SubHeading slot="title">Poster</SubHeading>
       <img
         slot="content"
@@ -78,11 +80,11 @@ const items: NavItem[] = [
       />
     </Section>
 
-    <Section>
+    <!-- <Section id="codegpt-retrospective">
       <SubHeading slot="title">Retrospective</SubHeading>
       <Paragraph slot="content">Although the duration of this project was short (about 2 months), it was actually the first real research project related to human-computer interaction (HCI) that I embarked on. It was through this project that the door to the HCI research field was opened for me.</Paragraph>
       <Paragraph slot="content">In previous projects, even though I gradually considered user needs during the development process, the focus was still more on fulfilling functional requirements or getting algorithms to work. This was the first time I developed with the premise of considering what users might need.</Paragraph>
       <Paragraph slot="content">Inspired by the professor Dr. Liu, who directly advised us for this project, I also began to think more about how to inject innovative ideas into the project, rather than simply focusing on engineering tasks.
-    </Section>
+    </Section> -->
   </Wrapper>
 </Wrapper>

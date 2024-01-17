@@ -1,0 +1,71 @@
+---
+import Wrapper from "../../../layouts/Wrapper";
+import ButtonLink from "../../ButtonLink";
+import { Heading, Paragraph, SubHeading, Caption } from "../../typography";
+import SideNav, { type NavItem } from "../../SideNav.astro";
+import Section from "../../Section.astro";
+import type { ReactNode } from "react";
+
+export interface Content {
+  type: "paragraph" | "html" | "btn-group"
+  content: ReactNode
+}
+
+export interface SectionContent {
+  id: string
+  subTitle: string
+  title: string
+  content: Content[]
+}
+
+const items: NavItem[] = [
+  { id: "tomas-overview", title: "Overview" },
+  { id: "tomas-abstract", title: "Abstract" }
+]
+---
+
+<Wrapper className="grid grid-cols-project">
+  <SideNav items={items} />
+  <Wrapper>
+    <Section id="tomas-overview">
+      <Caption slot="title" className="mb-0">Overview</Caption>
+      <SubHeading slot="title">A Task-Oriented Multimodal Agent System to Enhance Mobile User Interface Accessibility for Older Adults</SubHeading>
+      <Paragraph slot="content">Period: Jul 2023 - Present</Paragraph>
+      <Paragraph slot="content">Advisor: Dr. Toby Li</Paragraph>
+      <Paragraph slot="content">Location: University of Notre Dame</Paragraph>
+      <div
+        slot="content"
+        class="flex flex-row gap-6 items-center justify-center md:justify-normal"
+      >
+        <ButtonLink
+          target='_blank'
+          href="https://github.com/zqh0421/TOMAS-React"
+          size="small"
+          background="callout"
+          foreground="callout"
+          className="mt-2 w-fit"
+          isGhost
+        >
+          Source Code
+        </ButtonLink>
+        <ButtonLink
+          target='_blank'
+          href="https://sangwooklee.info/publications/tomas/#title"
+          size="small"
+          background="callout"
+          foreground="callout"
+          className="mt-2 w-fit"
+          isGhost
+        >
+        Demo
+      </ButtonLink>
+    </div>
+    </Section>
+    <Section id="codegpt-abstract">
+      <SubHeading slot="title">Abstract</SubHeading>
+      <Paragraph slot="content">This research introduces the Task-Oriented Multimodal Agent System (TOMAS), which was developed to overcome the challenges older adults face in using smartphones, such as small text size, complex menu structures, and navigation issues.</Paragraph>
+      <Paragraph slot="content">Interviews with students and social workers experienced in supporting elderly smartphone users helped identify key challenges, including cognitive, physical, and design difficulties, as well as two primary methods of assistance: 'Proxy Assistance' and 'Educative Assistance'. Inspired by educative assistance, TOMAS focuses on simplifying the user interface and integrating senior-friendly features like voice commands to empower older adults to use smartphones more independently and confidently.</Paragraph>
+      <Paragraph slot="content">User testing with elderly Korean participants, conducted through a movie theater ticket booking task, revealed areas where TOMAS could be improved, particularly in response time and instruction clarity, highlighting the necessity for more intuitive and visually supportive user interfaces.</Paragraph>
+    </Section>
+  </Wrapper>
+</Wrapper>
