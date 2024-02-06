@@ -7,6 +7,8 @@ import { ItemInViewAnimation } from '../../components/InViewAnimation'
 import ShortestContent from '../../components/contents/projects/ShortestContent.astro'
 import CodegptContent from '../../components/contents/projects/CodegptContent.astro';
 import TomasContent from '../../components/contents/projects/TomasContent.astro';
+import LingoBuddyContent from '../../components/contents/projects/LingoBuddyContent.astro';
+import MuseumXContent from '../../components/contents/projects/MuseumXContent.astro';
 
 export function getStaticPaths() {
   return projectList.map((project) => ({
@@ -49,12 +51,16 @@ const { project } = Astro.props;
       <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
         <img src={project.cover} class="w-full my-8" />
       </ItemInViewAnimation>
-      {
-        slug === "shortest" ? <ShortestContent /> :
-        slug === "codegpt" ? <CodegptContent /> :
-        slug === "tomas" ? <TomasContent /> :
-        null
-      }
+      <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
+        {
+          slug === "shortest" ? <ShortestContent /> :
+          slug === "codegpt" ? <CodegptContent /> :
+          slug === "tomas" ? <TomasContent /> :
+          slug === "lingobuddy" ? <LingoBuddyContent /> :
+          slug === "museumx" ? <MuseumXContent /> :
+          null
+        }
+       </ItemInViewAnimation>
     </Wrapper>
   </main>
 </BasicLayout>

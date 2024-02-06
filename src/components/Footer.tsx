@@ -65,7 +65,8 @@ function Footer() {
             Made with Astro & React by QIANHUI ZHAO
           </small>
           <small className="text-xs/5 text-neutral-300">
-            Last Updated: {months[currentMonth]} {currentDay}, {currentYear}
+            {/* Last Updated: {months[currentMonth]} {currentDay}, {currentYear} */}
+            Last Updated: Feb 6, 2024
           </small>
         </div>
       </Wrapper>

@@ -1,0 +1,67 @@
+---
+import Wrapper from "../../../layouts/Wrapper";
+import ButtonLink from "../../ButtonLink";
+import { Heading, Paragraph, SubHeading, Caption } from "../../typography";
+import SideNav, { type NavItem } from "../../SideNav.astro";
+import Section from "../../Section.astro";
+import type { ReactNode } from "react";
+
+export interface Content {
+  type: "paragraph" | "html" | "btn-group"
+  content: ReactNode
+}
+
+export interface SectionContent {
+  id: string
+  subTitle: string
+  title: string
+  content: Content[]
+}
+
+const items: NavItem[] = [
+  { id: "lingobuddy-overview", title: "Overview" },
+  { id: "lingobuddy-abstract", title: "Abstract" }
+]
+---
+
+<Wrapper className="grid grid-cols-project">
+  <SideNav items={items} />
+  <Wrapper>
+    <Section id="lingobuddy-overview">
+      <Caption slot="title" className="mb-0">Overview</Caption>
+      <SubHeading slot="title">LingoBuddy: your AI language study buddy.</SubHeading>
+      <Paragraph slot="content">Period: Jul 2023 - Present</Paragraph>
+      <div
+        slot="content"
+        class="flex flex-row gap-6 items-center justify-center md:justify-normal"
+      >
+        <ButtonLink
+          target='_blank'
+          href="https://github.com/zqh0421/LingoBuddy"
+          size="small"
+          background="callout"
+          foreground="callout"
+          className="mt-2 w-fit"
+          isGhost
+        >
+          Source Code
+        </ButtonLink>
+        <ButtonLink
+          target='_blank'
+          href="https://lingo-buddy.vercel.app"
+          size="small"
+          background="callout"
+          foreground="callout"
+          className="mt-2 w-fit"
+          isGhost
+        >
+        Demo
+      </ButtonLink>
+    </div>
+    </Section>
+    <Section id="lingobuddy-abstract">
+      <SubHeading slot="title">Abstract</SubHeading>
+      <Paragraph>An independent developed project.</Paragraph>
+    </Section>
+  </Wrapper>
+</Wrapper>

@@ -62,7 +62,7 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
             <div className="flex items-center">
               <ButtonLink
                 target='_blank'
-                href="https://drive.google.com/file/d/1h_XRQjizTTwRxbRRHvxCuOTYPoCwic8C/view?usp=sharing"
+                href="https://drive.google.com/file/d/12jhUGf5eHnbC0gfhVaolzonedefTFZpU/view?usp=share_link"
                 size="small"
                 isGhost
                 className='hidden lg:block'
@@ -70,7 +70,7 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
               </ButtonLink>
               <ButtonLink
                 target='_blank'
-                href="https://drive.google.com/file/d/1h_XRQjizTTwRxbRRHvxCuOTYPoCwic8C/view?usp=sharing"
+                href="https://drive.google.com/file/d/12jhUGf5eHnbC0gfhVaolzonedefTFZpU/view?usp=share_link"
                 size="small"
                 isGhost
                 className='block lg:hidden'
