@@ -1,8 +1,8 @@
 const siteConfig = {
-  name: 'Qianhui Zhao',
+  name: 'Chloe Qianhui Zhao',
   description:
-    "I'm Qianhui, a passionate front-end developer and HCI researcher currently based in Notre Dame, Indiana, the US.",
-  email: 'zqh0421@hotmail.com',
+    "I'm Qianhui (Chloe), a passionate front-end developer and HCI researcher currently based in Pittsburgh, Pennsylvania, the US.",
+  email: 'qianhuiz@cs.cmu.edu',
   url: 'https://zqh0421.github.io',
   links: {
     github: 'https://github.com/zqh0421',

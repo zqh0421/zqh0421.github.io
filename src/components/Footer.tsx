@@ -28,11 +28,6 @@ const socialMedia = [
 ];
 
 function Footer() {
-  const [currentYear] = useState(() => new Date().getFullYear());
-  const [currentMonth] = useState(() => new Date().getUTCMonth());
-  const [currentDay] = useState(() => new Date().getUTCDate());
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
   return (
     <footer
       aria-label="Primary"
@@ -62,11 +57,11 @@ function Footer() {
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
         <div className="flex flex-col items-center justify-center py-12">
           <small className="text-xs/5 text-neutral-300">
-            Made with Astro & React by QIANHUI ZHAO
+            Made with Astro & React by CHLOE QIANHUI ZHAO
           </small>
           <small className="text-xs/5 text-neutral-300">
             {/* Last Updated: {months[currentMonth]} {currentDay}, {currentYear} */}
-            Last Updated: Feb 6, 2024
+            Last Updated: October 21, 2024
           </small>
         </div>
       </Wrapper>
