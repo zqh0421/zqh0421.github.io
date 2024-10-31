@@ -62,15 +62,15 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
             <div className="flex items-center">
               <ButtonLink
                 target='_blank'
-                href="https://drive.google.com/file/d/1zbmQ798oP1KBnXCmkbbmCDzVLFt5Lwkb/view?usp=sharing"
+                href="https://docs.google.com/document/d/1LFlxKzcoKs88W80TIdZLu8u6iS0EfJ-F/edit?usp=sharing&ouid=103943013089703373038&rtpof=true&sd=true"
                 size="small"
                 isGhost
                 className='hidden lg:block'
-              >Download CV
+              >See CV
               </ButtonLink>
               <ButtonLink
                 target='_blank'
-                href="https://drive.google.com/file/d/1zbmQ798oP1KBnXCmkbbmCDzVLFt5Lwkb/view?usp=sharing"
+                href="https://docs.google.com/document/d/1LFlxKzcoKs88W80TIdZLu8u6iS0EfJ-F/edit?usp=sharing&ouid=103943013089703373038&rtpof=true&sd=true"
                 size="small"
                 isGhost
                 className='block lg:hidden'
