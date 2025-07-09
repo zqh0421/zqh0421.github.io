@@ -101,7 +101,7 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
                   <a
                     // href={'#' + item.path}
                     href={item.path}
-                    className="relative py-1 text-sm uppercase text-neutral-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutral-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
+                    className="relative py-1 text-sm uppercase text-neutral-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutral-200 after:to-transparent after:transition-transform after:duration-300 hover:after:-scale-x-125 focus-visible:after:-scale-x-125 hover:text-neutral-200 transition-colors duration-300"
                     // onClick={(event) => {
                     //   event.preventDefault()
                     //   const target = document.getElementById(item.path);

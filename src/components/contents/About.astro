@@ -69,7 +69,7 @@ export const newsList = [
       <ItemInViewAnimation delay={0.2} client:visible >
         <div class="pl-4 md:pl-8 max-h-[40vh] overflow-y-auto custom-scrollbar mt-4">
           <div class="flex items-center mb-1">
-            <div class="text-sm text-slate-500">Recent news</div>
+            <div class="text-sm text-slate-500">📰 Recent news</div>
             <span class="text-xs text-slate-400 ml-2">Scroll for more ↓</span>
           </div>
           <ul class="list-disc text-slate-500 text-sm space-y-3 max-w-[60ch] break-words rounded-md border border-slate-200 bg-white/40 p-6">
@@ -91,12 +91,13 @@ export const newsList = [
               })
             }
           </ul>
-          <details class="mt-2 group">
-            <summary class="cursor-pointer text-sm text-slate-400 select-none hover:text-slate-600 transition flex items-center">
+          <details class="mt-2 group" id="archived-news-details">
+            <summary class="cursor-pointer text-sm text-slate-400 select-none hover:text-slate-600 transition-all duration-300 flex items-center">
+              <span class="transition-transform duration-300 ease-in-out group-open:rotate-90 mr-1">▶</span>
               <span>Archived news</span>
-              <span class="text-xs text-slate-400 ml-2 hidden group-open:inline-block">Scroll for more ↓</span>
+              <span class="text-xs text-slate-400 ml-2 opacity-0 group-open:opacity-100 transition-opacity duration-300 ease-in-out">Scroll for more ↓</span>
             </summary>
-            <ul class="list-disc pl-7 text-slate-400 text-sm space-y-3 mt-1 max-w-[60ch] break-words max-h-48 overflow-y-auto rounded-md border border-slate-200 bg-white/40 p-6 scrollbar-left">
+            <ul class="list-disc pl-7 text-slate-400 text-sm space-y-3 mt-1 max-w-[60ch] break-words max-h-48 overflow-y-auto rounded-md border border-slate-200 bg-white/40 p-6 scrollbar-left transition-all duration-300 ease-in-out">
               {
                 newsList.filter(n => n.isVisible).slice(5).map((news) => {
                   const parts = news.title.split(/('.*?')/);
@@ -121,6 +122,32 @@ export const newsList = [
   </Wrapper>
 </section>
 
+<script>
+  // 监听details展开/折叠事件
+  document.addEventListener('DOMContentLoaded', function() {
+    const details = document.getElementById('archived-news-details');
+    const newsContainer = details?.closest('.max-h-\\[40vh\\]');
+    
+    if (details && newsContainer) {
+      details.addEventListener('toggle', function() {
+        // 检查details是否展开
+        const isOpen = details.hasAttribute('open');
+        
+        if (isOpen) {
+          // 展开时，延迟滚动以等待动画完成
+          setTimeout(() => {
+            const scrollAmount = 120; // 滚动约3-4行的距离
+            newsContainer.scrollBy({
+              top: scrollAmount,
+              behavior: 'smooth'
+            });
+          }, 350); // 等待展开动画完成
+        }
+      });
+    }
+  });
+</script>
+
 <style>
   .custom-scrollbar {
     scrollbar-width: thin;
@@ -140,5 +167,44 @@ export const newsList = [
   }
   .scrollbar-left > li {
     direction: ltr;
+  }
+  
+  /* 优化details展开/折叠动画 */
+  details[open] summary ~ * {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  details:not([open]) summary ~ * {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* 移除默认的details箭头 */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
   }
 </style>

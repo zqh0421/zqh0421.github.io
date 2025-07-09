@@ -43,7 +43,7 @@ function MobileNavigation({ isOpen = false, onClose, items }: MobileNavigationPr
           exit={{
             opacity: 0,
           }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className={cn(
             'border-b-[0.5px] border-neutral-600 bg-neutral-900/90 py-4 backdrop-blur-md supports-[backdrop-filter]:bg-neutral-900/50 md:hidden',
           )}
@@ -58,6 +58,7 @@ function MobileNavigation({ isOpen = false, onClose, items }: MobileNavigationPr
               exit={{
                 y: 10,
               }}
+              transition={{ duration: 0.3 }}
               className="flex flex-col justify-center"
             >
               {items.map((item, index) => (

@@ -43,8 +43,8 @@ const Main = () => {
   // 自动滚动到hero部分
   useEffect(() => {
     const timer = setTimeout(() => {
-      smoothScrollTo('hero', 3000); // 3秒的滚动时间
-    }, 500); // 1秒后开始滚动
+      smoothScrollTo('scrollto', 3000); // 3秒的滚动时间
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -55,13 +55,13 @@ const Main = () => {
       "inset-0 transition duration-300 bg-slate-900"
     )}>
     <h1 className="w-11/12 lg:w-4/5 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
-      Empathy,
+      Empathize,
     </h1>
     <h1 className="w-11/12 lg:w-4/5 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
-      Programming,
+      Code,
     </h1>
     <h1 className="w-11/12 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
-      Innovation
+      Create.
     </h1>
     <ButtonLink
       href="#hero"
@@ -70,7 +70,7 @@ const Main = () => {
       className="mt-6 lg:mt-12"
       onClick={(event) => {
         event.preventDefault()
-        smoothScrollTo('hero', 2000); // 点击按钮时使用2秒滚动时间
+        smoothScrollTo('scrollto', 2000);
       }}
       isGhost
     >
