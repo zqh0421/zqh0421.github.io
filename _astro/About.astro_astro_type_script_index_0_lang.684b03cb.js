@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("archived-news-details"),e=t?.closest(".max-h-\\[40vh\\]");t&&e&&t.addEventListener("toggle",function(){t.hasAttribute("open")&&setTimeout(()=>{e.scrollBy({top:120,behavior:"smooth"})},350)})});
