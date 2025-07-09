@@ -15,10 +15,10 @@ export const menuItems = [
 		title: 'About',
 		path: '/about',
 	},
-  {
-		title: 'Blogs',
-		path: '/blog',
-	},
+  // {
+	// 	title: 'Blogs',
+	// 	path: '/blog',
+	// },
 	{
 		title: 'Projects',
 		path: '/project',
@@ -83,7 +83,7 @@ function NavBar({ isInitialBackgroundTransparent = false }: NavBarProps) {
                 title="Navigate home"
                 className='items-center justify-center'
               >
-                Qianhui
+                Chloe Qianhui
               </a>
             </div>
             <div className="flex items-center md:hidden justify-end">

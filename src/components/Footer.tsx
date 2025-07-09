@@ -4,19 +4,19 @@ import Wrapper from '../layouts/Wrapper';
 
 const socialMedia = [
   {
-    label: 'GITHUB',
-    href: siteConfig.links.github,
-  },
-  {
-    label: 'INSTAGRAM',
-    href: siteConfig.links.instagram,
+    label: 'SCHOLAR',
+    href: siteConfig.links.scholar,
   },
   {
     label: 'LINKEDIN',
     href: siteConfig.links.linkedin,
   },
   {
-    label: 'RED',
+    label: 'GITHUB',
+    href: siteConfig.links.github,
+  },
+  {
+    label: 'REDNOTE',
     href: siteConfig.links.red,
     icon: "Red"
   },
@@ -61,7 +61,7 @@ function Footer() {
           </small>
           <small className="text-xs/5 text-neutral-300">
             {/* Last Updated: {months[currentMonth]} {currentDay}, {currentYear} */}
-            Last Updated: October 21, 2024
+            Last Updated: July 08, 2025
           </small>
         </div>
       </Wrapper>

@@ -9,6 +9,7 @@ import CodegptContent from '../../components/contents/projects/CodegptContent.as
 import TomasContent from '../../components/contents/projects/TomasContent.astro';
 import LingoBuddyContent from '../../components/contents/projects/LingoBuddyContent.astro';
 import MuseumXContent from '../../components/contents/projects/MuseumXContent.astro';
+import SlideItRightContent from '../../components/contents/projects/SlideItRightContent.astro';
 
 export function getStaticPaths() {
   return projectList.map((project) => ({
@@ -58,6 +59,7 @@ const { project } = Astro.props;
           slug === "tomas" ? <TomasContent /> :
           slug === "lingobuddy" ? <LingoBuddyContent /> :
           slug === "museumx" ? <MuseumXContent /> :
+          slug === "slideitright" ? <SlideItRightContent /> :
           null
         }
        </ItemInViewAnimation>

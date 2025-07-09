@@ -6,6 +6,7 @@ const siteConfig = {
   url: 'https://zqh0421.github.io',
   links: {
     github: 'https://github.com/zqh0421',
+    scholar: 'https://scholar.google.com/citations?hl=en&user=c9PCMq4AAAAJ',
     instagram: 'https://www.instagram.com/chloe_zqh/',
     linkedin: 'https://www.linkedin.com/in/qianhui-zhao-741722189/',
     red: 'https://www.xiaohongshu.com/user/profile/61b80580000000001000a8fa'

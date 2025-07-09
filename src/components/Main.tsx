@@ -5,10 +5,50 @@ import { useEffect } from 'react';
 
 const Main = () => {
   const { pageX, pageY } = useMouseMove()
+  
   useEffect(() => {
     const header = document.getElementsByTagName('header')[0]
     header.style.backgroundImage = `radial-gradient(600px at ${pageX}px ${pageY}px, rgba(29, 78, 216, 0.2), transparent 80%)`;
   }, [pageX, pageY])
+
+  // 自定义平滑滚动函数
+  const smoothScrollTo = (targetId: string, duration: number = 3000) => {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const targetPosition = target.offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime: number | null = null;
+
+    const animation = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+
+    // 缓动函数 - 使滚动更加平滑
+    const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t * t + b;
+      t -= 2;
+      return c / 2 * (t * t * t + 2) + b;
+    };
+
+    requestAnimationFrame(animation);
+  };
+
+  // 自动滚动到hero部分
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      smoothScrollTo('hero', 3000); // 3秒的滚动时间
+    }, 500); // 1秒后开始滚动
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <header className={cn(
       "fixed z-[-1] top-0 left-0 pt-10 w-screen h-screen flex flex-col items-center justify-center",
@@ -30,8 +70,7 @@ const Main = () => {
       className="mt-6 lg:mt-12"
       onClick={(event) => {
         event.preventDefault()
-        const target = document.getElementById('hero');
-        target && target.scrollIntoView({ behavior: 'smooth' });
+        smoothScrollTo('hero', 2000); // 点击按钮时使用2秒滚动时间
       }}
       isGhost
     >
