@@ -43,7 +43,7 @@ const Main = () => {
   // 自动滚动到hero部分
   useEffect(() => {
     const timer = setTimeout(() => {
-      smoothScrollTo('scrollto', 3000); // 3秒的滚动时间
+      smoothScrollTo('hero', 3000); // 3秒的滚动时间
     }, 500);
 
     return () => clearTimeout(timer);
@@ -51,8 +51,8 @@ const Main = () => {
 
   return (
     <header className={cn(
-      "fixed z-[-1] top-0 left-0 pt-10 w-screen h-screen flex flex-col items-center justify-center",
-      "inset-0 transition duration-300 bg-slate-900"
+      "fixed z-[-1] top-0 left-0 pt-10 w-full h-screen flex flex-col items-center justify-center",
+      "transition duration-300 bg-slate-900"
     )}>
     <h1 className="w-11/12 lg:w-4/5 leading-[1.25] text-5xl md:text-[4.5rem] lg:text-[7.5rem] font-bold text-center">
       Empathize,
@@ -70,7 +70,7 @@ const Main = () => {
       className="mt-6 lg:mt-12"
       onClick={(event) => {
         event.preventDefault()
-        smoothScrollTo('scrollto', 2000);
+        smoothScrollTo('hero', 2000);
       }}
       isGhost
     >

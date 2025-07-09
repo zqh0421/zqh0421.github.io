@@ -13,14 +13,14 @@ function useMouseMove() {
   const updateMouseMove = useCallback((e: MouseEvent) => {
     // 使用 requestAnimationFrame 来节流
     requestAnimationFrame(() => {
-      setMouseMove({
-        clientX: e.clientX,
-        clientY: e.clientY,
-        pageX: e.pageX,
-        pageY: e.pageY,
-        screenX: e.screenX,
-        screenY: e.screenY
-      });
+    setMouseMove({
+      clientX: e.clientX,
+      clientY: e.clientY,
+      pageX: e.pageX,
+      pageY: e.pageY,
+      screenX: e.screenX,
+      screenY: e.screenY
+    });
     });
   }, []);
 

@@ -11,7 +11,7 @@ const HeroContainer = (props: { children: ReactNode }) => {
   }, []);
 
   return (
-    <div id="hero" className={cn('bg-slate-900 min-h-min h-min top-full left-0 w-screen flex flex-col justify-center scroll-smooth', position)}>
+    <div id="hero" className={cn('bg-slate-900 min-h-min h-min top-full left-0 w-full flex flex-col justify-center scroll-smooth', position)}>
       {props.children}
     </div>
   )

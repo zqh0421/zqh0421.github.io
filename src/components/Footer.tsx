@@ -31,13 +31,13 @@ function Footer() {
   return (
     <footer
       aria-label="Primary"
-      className="relative z-10 w-full bg-neutral-900 py-10"
+      className="relative z-10 w-full bg-neutral-900 py-6"
     >
       <Wrapper>
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
         <ul
           aria-label="social-media"
-          className="flex flex-col items-center md:flex-row md:justify-center gap-x-6 py-12"
+          className="flex flex-col items-center md:flex-row md:justify-center gap-x-6 py-8"
         >
           {socialMedia.map(({ label, href }, index) => (
             <li key={index}>
@@ -55,13 +55,13 @@ function Footer() {
           ))}
         </ul>
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutral-600 to-transparent" />
-        <div className="flex flex-col items-center justify-center py-12">
+        <div className="flex flex-col items-center justify-center py-8">
           <small className="text-xs/5 text-neutral-300">
             Made with Astro & React by CHLOE QIANHUI ZHAO
           </small>
           <small className="text-xs/5 text-neutral-300">
             {/* Last Updated: {months[currentMonth]} {currentDay}, {currentYear} */}
-            Last Updated: July 08, 2025
+            Last Updated: July 09, 2025
           </small>
         </div>
       </Wrapper>

@@ -1,17 +1,22 @@
 ---
 import Wrapper from '../../layouts/Wrapper';
 import { Caption, Heading } from '../typography';
-import { ItemInViewAnimation } from '../InViewAnimation';
 ---
 
 <section
   id="contact"
-  class="relative z-10 w-full bg-neutral-900"
+  class="relative z-10 w-full bg-gradient-to-b from-slate-900 to-neutral-900"
 >
-  <Wrapper className='py-28'>
-    <ItemInViewAnimation className="flex flex-col items-center text-center" delay={0.1} client:visible >
-        <Caption>Contact</Caption>
-        <Heading className='text-neutral-50'>Let's get in touch!</Heading>
-    </ItemInViewAnimation>
+  <Wrapper className='pt-16 pb-4'>
+    <div class="flex flex-col items-center text-center">
+        <Caption className="mb-4">Contact</Caption>
+        <Heading className='mb-8 !text-neutral-50'>Let's get in touch!</Heading>
+        <div class="flex flex-col items-center space-y-4">
+          <p class="text-neutral-300 text-lg max-w-2xl">
+            Always excited to discuss new opportunities, collaborate on interesting projects, or have a coffee chat!
+          </p>
+        </div>
+    </div>
   </Wrapper>
 </section>
+

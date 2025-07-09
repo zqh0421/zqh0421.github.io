@@ -33,7 +33,7 @@ function LoadingScreen() {
           animate={{ y: '0%' }}
           exit={{ y: '-100%' }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="w-screen fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900 h-screen text-4xl"
+          className="w-full fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900 h-screen text-4xl"
         >
           <motion.div
             animate={{ rotate: 360 }}
