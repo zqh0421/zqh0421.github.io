@@ -60,10 +60,12 @@ export const newsList = [
           👋🏻Hi there! I'm Qianhui (Chloe),
         </Heading>
         <Paragraph>
-          a first-year HCI graduate student at Carnegie Mellon University, currently based in Pittsburgh, PA, United States.
-        </Paragraph>
-        <Paragraph>
+          a master student at Human-Computer Interaction Institute at Carnegie Mellon University, currently based in Pittsburgh, PA, United States.
+
           My research interest mainly focuses on Human-AI Collaboration, Intelligent User Interface, AI for Education, and User Experience.
+        </Paragraph>
+        <Paragraph className="highlight-paragraph">
+            📢 I'm currently seeking PhD opportunities for Fall 2026 in Computer Science, Human-Computer Interaction, or Information Science, with a focus on human-centered AI tools and systems that support stakeholder needs.
         </Paragraph>
       </ItemInViewAnimation>
       <ItemInViewAnimation delay={0.2} client:visible >
@@ -206,5 +208,24 @@ export const newsList = [
   }
   details > summary::-webkit-details-marker {
     display: none;
+  }
+  
+  /* 高亮段落样式 */
+  .highlight-paragraph {
+    position: relative;
+    padding-left: 2.5rem;
+    margin: 1rem 0;
+  }
+  
+  .highlight-paragraph::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(135deg, rgb(159, 172, 230), rgb(159, 172, 230));
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(159, 172, 230, 0.3);
   }
 </style>
