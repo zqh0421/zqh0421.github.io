@@ -61,7 +61,7 @@ function Footer() {
           </small>
           <small className="text-xs/5 text-neutral-300">
             {/* Last Updated: {months[currentMonth]} {currentDay}, {currentYear} */}
-            Last Updated: July 11, 2025
+            Last Updated: Jan. 24, 2026
           </small>
         </div>
       </Wrapper>
