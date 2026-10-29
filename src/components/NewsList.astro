@@ -1,0 +1,39 @@
+---
+import { formatMonth } from '../lib/data';
+import type { NewsItem } from '../lib/types';
+
+interface Props {
+  items: NewsItem[];
+  visible?: number; // how many to show before "Older news"
+}
+
+const { items, visible = 5 } = Astro.props;
+const recent = items.slice(0, visible);
+const older = items.slice(visible);
+---
+
+<ul class="flex flex-col gap-[18px] text-[15px]">
+  {recent.map((item) => (
+    <li>
+      <p class="eyebrow text-accent">{formatMonth(item.date)}</p>
+      <p class="mt-0.5">{item.url ? <a href={item.url}>{item.text}</a> : item.text}</p>
+    </li>
+  ))}
+</ul>
+
+{older.length > 0 && (
+  <details class="group mt-5">
+    <summary class="cursor-pointer list-none text-sm font-medium text-accent hover:underline">
+      <span class="group-open:hidden">Older news ({older.length}) →</span>
+      <span class="hidden group-open:inline">Hide older news</span>
+    </summary>
+    <ul class="mt-4 flex flex-col gap-[18px] text-[15px]">
+      {older.map((item) => (
+        <li>
+          <p class="eyebrow text-faint">{formatMonth(item.date)}</p>
+          <p class="mt-0.5 text-body">{item.url ? <a href={item.url}>{item.text}</a> : item.text}</p>
+        </li>
+      ))}
+    </ul>
+  </details>
+)}

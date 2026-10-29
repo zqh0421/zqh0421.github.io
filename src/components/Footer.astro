@@ -1,0 +1,10 @@
+---
+import { profile } from '../content/profile';
+---
+
+<footer class="mx-auto mt-24 w-full max-w-[1100px] px-6 pb-10">
+  <div class="flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[13px] text-muted">
+    <span>© {new Date().getFullYear()} {profile.name}</span>
+    <span>{profile.location}</span>
+  </div>
+</footer>

@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import PubItem from '../components/PubItem.astro';
+import { profile } from '../content/profile';
+import { themes } from '../content/themes';
+import { getPublications } from '../lib/data';
+
+const pubs = await getPublications();
+const years = [...new Set(pubs.map((p) => p.year))];
+const filters = [
+  { label: 'All', value: '', count: pubs.length },
+  ...themes.map((t) => ({ label: t, value: t, count: pubs.filter((p) => p.themes.includes(t)).length })),
+].filter((f) => f.count > 0);
+---
+
+<Base title="Publications" description={`Publications by ${profile.name}.`}>
+  <div class="mx-auto max-w-[820px] pt-14">
+    <a href="/" class="text-sm font-medium">← Home</a>
+    <h1 class="mt-4 mb-3 font-serif text-[52px] leading-[1.05]">Publications</h1>
+    <p class="mb-6 text-muted">Full papers, demos and workshop papers, newest first.</p>
+
+    <!-- Shown by the script below; without JavaScript every paper is listed. -->
+    <div id="theme-filters" role="group" aria-label="Filter by research theme" class="mb-10 hidden flex-wrap gap-2">
+      {filters.map((f, i) => (
+        <button
+          type="button"
+          data-theme={f.value}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          class="cursor-pointer rounded-full border border-line-strong bg-card px-4 py-2.5 text-sm font-medium text-body aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white"
+        >
+          {f.label} · {f.count}
+        </button>
+      ))}
+    </div>
+
+    {years.map((year) => (
+      <section class="grid grid-cols-1 gap-y-3 border-t border-line py-6 sm:grid-cols-[80px_minmax(0,1fr)] sm:gap-x-6 sm:gap-y-0" data-year-group>
+        <h2 class="font-serif text-[30px] leading-tight text-accent">{year}</h2>
+        <div class="flex flex-col gap-7">
+          {pubs.filter((p) => p.year === year).map((pub) => <PubItem pub={pub} />)}
+        </div>
+      </section>
+    ))}
+
+    <p class="mt-8 border-t border-line pt-6 text-[15px] text-muted">
+      The most up-to-date list is on <a href={profile.scholarUrl}>Google Scholar</a>.
+    </p>
+  </div>
+</Base>
+
+<script>
+  const bar = document.getElementById('theme-filters');
+  if (bar) {
+    bar.classList.replace('hidden', 'flex');
+    const buttons = [...bar.querySelectorAll<HTMLButtonElement>('button')];
+
+    bar.addEventListener('click', (event) => {
+      const button = (event.target as HTMLElement).closest('button');
+      if (!button) return;
+      const theme = button.dataset.theme ?? '';
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+
+      document.querySelectorAll<HTMLElement>('[data-year-group]').forEach((group) => {
+        let anyVisible = false;
+        group.querySelectorAll<HTMLElement>('article[data-themes]').forEach((article) => {
+          const match = !theme || article.dataset.themes!.split('|').includes(theme);
+          article.hidden = !match;
+          anyVisible ||= match;
+        });
+        group.hidden = !anyVisible;
+      });
+    });
+  }
+</script>

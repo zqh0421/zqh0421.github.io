@@ -1,0 +1,18 @@
+---
+import { profile } from '../content/profile';
+---
+
+<header class="border-b border-line">
+  <div class="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-[18px]">
+    <a href="/" class="font-serif text-[26px] text-ink hover:text-ink hover:no-underline">{profile.name}</a>
+    <nav aria-label="Profiles and CV" class="flex flex-wrap items-center gap-x-[22px] gap-y-1 text-sm font-medium">
+      {profile.links.map((link) => (
+        <a href={link.url} class="py-2.5 text-body hover:text-accent">{link.label}</a>
+      ))}
+      <a
+        href={profile.cvUrl}
+        class="rounded-lg bg-accent px-4 py-[9px] text-white hover:bg-accent-dark hover:text-white hover:no-underline"
+      >CV</a>
+    </nav>
+  </div>
+</header>

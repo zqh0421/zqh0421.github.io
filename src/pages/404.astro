@@ -1,10 +1,10 @@
 ---
-import { Heading } from '../components/typography';
-import BasicLayout from '../layouts/BasicLayout.astro';
+import Base from '../layouts/Base.astro';
 ---
 
-<BasicLayout title="Not Found" description='This page does not exist!'>
-  <main class="w-full item-center justify-center text-center">
-    <Heading className='text-neutral-50 my-20'>404 Page Not Found</Heading>
-  </main>
-</BasicLayout>
+<Base title="Page not found">
+  <div class="py-24">
+    <h1 class="mb-4 font-serif text-[52px] leading-tight">Page not found</h1>
+    <p class="text-body">This page doesn't exist anymore. <a href="/">Go to the homepage →</a></p>
+  </div>
+</Base>

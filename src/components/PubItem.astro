@@ -1,0 +1,52 @@
+---
+import { profile } from '../content/profile';
+import type { Publication } from '../lib/types';
+
+interface Props {
+  pub: Publication;
+  showFigure?: boolean;
+}
+
+const { pub, showFigure = false } = Astro.props;
+const isMe = (name: string) => profile.authorNames.includes(name);
+// Demos, posters and workshop items get a quieter label than full papers.
+const isMainTrack = pub.type === 'Full Paper' || pub.type === 'Short Paper';
+---
+
+<article class="flex flex-wrap gap-5" data-themes={pub.themes.join('|')}>
+  {showFigure && pub.figure && (
+    <img
+      src={pub.figure.url}
+      alt={pub.figure.alt}
+      width="180"
+      height="112"
+      loading="lazy"
+      class="h-28 w-[180px] flex-none rounded-[10px] object-cover"
+    />
+  )}
+  <div class="min-w-0 flex-[1_1_260px]">
+    <p class:list={['eyebrow mb-1', isMainTrack ? 'text-accent' : 'text-faint']}>
+      {pub.venue} · {pub.type}
+    </p>
+    <h3 class="mb-1 text-[17px] leading-snug font-semibold">{pub.title}</h3>
+    <p class="mb-1 text-sm text-muted">
+      {pub.authors.map((name, i) => (
+        <>
+          {isMe(name) ? <b class="text-ink">{name}</b> : name}
+          {i < pub.authors.length - 1 && ', '}
+        </>
+      ))}
+    </p>
+    {pub.note && <p class="mb-1 text-sm text-faint">{pub.note}</p>}
+    <ul class="mt-1.5 mb-2 flex flex-wrap gap-1.5" aria-label="Research themes">
+      {pub.themes.map((theme) => (
+        <li class="rounded-full bg-tag-bg px-2.5 py-0.5 text-xs text-tag-fg">{theme}</li>
+      ))}
+    </ul>
+    {pub.links.length > 0 && (
+      <p class="flex flex-wrap gap-x-3.5 text-sm font-medium">
+        {pub.links.map((link) => <a href={link.url}>{link.label}</a>)}
+      </p>
+    )}
+  </div>
+</article>

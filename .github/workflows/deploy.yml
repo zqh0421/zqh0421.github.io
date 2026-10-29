@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+# For now this only runs when started by hand (Actions tab → "Run workflow"),
+# so pushing this branch never replaces the live site by accident.
+# Step 3 adds a trigger from Sanity; step 4 adds a push trigger for the live branch.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./dist
