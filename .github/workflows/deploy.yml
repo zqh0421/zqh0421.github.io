@@ -17,16 +17,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Uses the pnpm version from "packageManager" in package.json
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: npm
+          node-version-file: .nvmrc
+          cache: pnpm
 
       - name: Install and build
         run: |
-          npm ci
-          npm run build
+          pnpm install --frozen-lockfile
+          pnpm build
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

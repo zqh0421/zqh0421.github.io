@@ -4,12 +4,13 @@ Personal site of Chloe Qianhui Zhao, built with [Astro](https://docs.astro.build
 
 ## Run it locally
 
-Requires Node.js 22.12 or newer.
+Uses [nvm](https://github.com/nvm-sh/nvm) for Node (version in `.nvmrc`) and [pnpm](https://pnpm.io).
 
 ```sh
-npm install      # once, or after package.json changes
-npm run dev      # preview at http://localhost:4321 — updates as you edit
-npm run build    # production build into dist/ (what gets deployed)
+nvm use          # switch to the project's Node version
+pnpm install     # once, or after package.json changes
+pnpm dev         # preview at http://localhost:4321 — updates as you edit
+pnpm build       # production build into dist/ (what gets deployed)
 ```
 
 ## Where things live
