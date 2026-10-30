@@ -1,6 +1,7 @@
 ---
 import { profile } from '../content/profile';
 import type { Publication } from '../lib/types';
+import Cat from './Cat.astro';
 
 interface Props {
   pub: Publication;
@@ -9,11 +10,14 @@ interface Props {
 
 const { pub, showFigure = false } = Astro.props;
 const isMe = (name: string) => profile.authorNames.includes(name);
-// Demos, posters and workshop items get a quieter label than full papers.
-const isMainTrack = pub.type === 'Full Paper' || pub.type === 'Short Paper';
 ---
 
-<article class="flex flex-wrap gap-5" data-themes={pub.themes.join('|')}>
+<!-- On hover the title turns purple and a paw print appears beside it. -->
+<article class="group relative flex flex-wrap gap-5" data-themes={pub.themes.join('|')} data-reveal>
+  <Cat
+    pose="paw"
+    class="absolute top-1 -left-5 size-3.5 -translate-x-1 text-accent/70 opacity-0 transition duration-200 group-hover:translate-x-0 group-hover:opacity-100"
+  />
   {showFigure && pub.figure && (
     <img
       src={pub.figure.url}
@@ -21,15 +25,12 @@ const isMainTrack = pub.type === 'Full Paper' || pub.type === 'Short Paper';
       width="180"
       height="112"
       loading="lazy"
-      class="h-28 w-[180px] flex-none rounded-[10px] object-cover"
+      class="h-28 w-[180px] flex-none rounded object-cover"
     />
   )}
-  <div class="min-w-0 flex-[1_1_260px]">
-    <p class:list={['eyebrow mb-1', isMainTrack ? 'text-accent' : 'text-faint']}>
-      {pub.venue} · {pub.type}
-    </p>
-    <h3 class="mb-1 text-[17px] leading-snug font-semibold">{pub.title}</h3>
-    <p class="mb-1 text-sm text-muted">
+  <div class="min-w-0 flex-[1_1_260px] text-[15px]">
+    <h3 class="mb-0.5 text-[17.5px] leading-snug font-bold transition-colors duration-200 group-hover:text-accent">{pub.title}</h3>
+    <p class="text-muted">
       {pub.authors.map((name, i) => (
         <>
           {isMe(name) ? <b class="text-ink">{name}</b> : name}
@@ -37,16 +38,13 @@ const isMainTrack = pub.type === 'Full Paper' || pub.type === 'Short Paper';
         </>
       ))}
     </p>
-    {pub.note && <p class="mb-1 text-sm text-faint">{pub.note}</p>}
-    <ul class="mt-1.5 mb-2 flex flex-wrap gap-1.5" aria-label="Research themes">
-      {pub.themes.map((theme) => (
-        <li class="rounded-full bg-tag-bg px-2.5 py-0.5 text-xs text-tag-fg">{theme}</li>
-      ))}
-    </ul>
-    {pub.links.length > 0 && (
-      <p class="flex flex-wrap gap-x-3.5 text-sm font-medium">
-        {pub.links.map((link) => <a href={link.url}>{link.label}</a>)}
-      </p>
-    )}
+    <p class="text-muted">
+      <i title={pub.venueFull}>{pub.venue}</i> · {pub.type}
+      {pub.note && <> · {pub.note}</>}
+      {pub.links.map((link) => <> · <a href={link.url}>{link.label}</a></>)}
+    </p>
+    <p class="mt-0.5 text-[13px] text-faint">
+      <span class="sr-only">Research themes: </span>{pub.themes.join(' / ')}
+    </p>
   </div>
 </article>

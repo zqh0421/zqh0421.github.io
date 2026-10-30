@@ -2,21 +2,29 @@
 
 /* Design tokens: change a color or font here and it updates everywhere. */
 @theme {
-  --color-paper: #f7f7f5;
-  --color-card: #ffffff;
-  --color-ink: #18181b;
-  --color-body: #3f3f46;
-  --color-muted: #52525b;
-  --color-faint: #63636b;
-  --color-line: #e4e4e0;
-  --color-line-strong: #d4d4cf;
-  --color-accent: #3b4cb8;
-  --color-accent-dark: #2a378a;
-  --color-tag-bg: #eceef9;
-  --color-tag-fg: #2f3c94;
+  --color-paper: #fbfaf7;
+  --color-ink: #1f1b24;
+  --color-body: #3a3442;
+  --color-muted: #5a5462;
+  --color-faint: #6f6878;
+  --color-line: #e3dfe6;
+  --color-accent: #6b4fa0;
+  --color-accent-dark: #553d82;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
+  /* The black cat */
+  --color-cat: #2b2530;
+  --color-cat-eye: #f2c94c;
+  --color-cat-ear: #c98aa8;
+  --color-paw: #cfc8d6;
+
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Zen Maru Gothic", "Nunito Sans", ui-sans-serif, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-up: fade-up 0.35s var(--ease-out-soft) both;
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+  }
 }
 
 @layer base {
@@ -26,19 +34,78 @@
   }
   body {
     @apply font-sans text-base leading-relaxed antialiased;
+    overflow-x: clip; /* the footer cat starts just off to the side */
   }
+  /* Links: the underline slides in from the left on hover.
+     Buttons opt out with `bg-none`. */
   a {
-    @apply text-accent underline-offset-2 hover:text-accent-dark hover:underline;
+    @apply text-accent;
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 1px;
+    transition: background-size 0.25s var(--ease-out-soft), color 0.15s;
+  }
+  a:hover,
+  a:focus-visible {
+    @apply text-accent-dark;
+    background-size: 100% 1px;
   }
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-accent;
   }
 }
 
-@utility eyebrow {
-  @apply text-xs font-semibold tracking-wider uppercase;
+/* Button hover from v2: a slanted fill sweeps in from the left.
+   Put `sweep` on the filled box; set the fill color with --sweep. */
+.sweep {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.sweep::before {
+  content: "";
+  position: absolute;
+  inset: 0 -0.75rem;
+  z-index: -1;
+  background: var(--sweep, var(--color-accent));
+  transform: skewX(-16deg) scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out-soft);
+}
+.sweep:is(:hover, :focus-visible)::before,
+:is(:hover, :focus-visible) > .sweep::before {
+  transform: skewX(-16deg) scaleX(1);
+}
+
+/* Scroll reveal (see Base.astro): content below the fold fades up once. */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.reveal-in {
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Smooth cross-fade between pages; the header stays put. */
+@view-transition {
+  navigation: auto;
+}
+.site-header {
+  view-transition-name: site-header;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
 
 @utility section-title {
-  @apply font-serif text-[34px] leading-tight font-normal;
+  @apply font-heading text-[28px] leading-tight font-bold;
 }

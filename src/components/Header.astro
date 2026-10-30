@@ -2,17 +2,80 @@
 import { profile } from '../content/profile';
 ---
 
-<header class="border-b border-line">
-  <div class="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-[18px]">
-    <a href="/" class="font-serif text-[26px] text-ink hover:text-ink hover:no-underline">{profile.name}</a>
-    <nav aria-label="Profiles and CV" class="flex flex-wrap items-center gap-x-[22px] gap-y-1 text-sm font-medium">
+<header class="site-header relative bg-paper">
+  <!-- Divider: one hand-drawn stroke under the content: it fades in at the left like a pen
+       touching down (lined up with the name) and ends in a doodled cat tail (lined up with See CV). -->
+  <div
+    aria-hidden="true"
+    class="doodle-line pointer-events-none absolute -bottom-1 h-2 left-[max(1.5rem,calc((100%_-_1100px)/2_+_1.5rem))] right-[max(4.5rem,calc((100%_-_1100px)/2_+_4.5rem))]"
+  >
+    <svg viewBox="0 0 48 40" class="tail-curl absolute top-0 left-full h-10 w-12 overflow-visible text-cat">
+      <path
+        d="M-0.5 4 C 12 2.6, 24 4.4, 31 10.5 C 39 17.5, 37.5 29, 29.5 30.5 C 22.5 31.8, 19.5 24.5, 24 21.2 C 27.5 18.8, 31.5 21.5, 30.2 25"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+  <!-- Phones: name and CV on top, links underneath. Wider screens: everything on one line. -->
+  <div class="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-x-6 gap-y-1 px-6 pt-4 pb-2 md:pb-4">
+    <a href="/" class="bg-none font-heading text-[23px] font-bold text-ink hover:text-ink sm:text-[25px]">{profile.name}</a>
+    <nav
+      aria-label="Profiles"
+      class="order-last flex w-full flex-wrap items-center gap-x-[18px] text-[15px] font-semibold md:order-none md:ml-auto md:w-auto md:gap-x-[22px]"
+    >
       {profile.links.map((link) => (
-        <a href={link.url} class="py-2.5 text-body hover:text-accent">{link.label}</a>
+        <a href={link.url} class="py-0.5 my-2 text-body hover:text-accent">{link.label}</a>
       ))}
-      <a
-        href={profile.cvUrl}
-        class="rounded-lg bg-accent px-4 py-[9px] text-white hover:bg-accent-dark hover:text-white hover:no-underline"
-      >CV</a>
     </nav>
+    <!-- CV button with cat ears; the purple fill sweeps in on hover -->
+    <a
+      href={profile.cvUrl}
+      target="_blank"
+      rel="noopener"
+      class="group relative mt-1.5 bg-none text-[15px] font-bold whitespace-nowrap text-white transition-transform hover:text-white active:scale-95"
+    >
+      <!-- Ears change color as the sweep passes them: left ear first on the way in,
+           right ear first on the way out (the hover delay applies going in, the plain one going out). -->
+      <svg viewBox="0 0 14 10" aria-hidden="true" class="absolute -top-[9px] left-1.5 h-2.5 w-3.5 fill-current text-cat transition-colors delay-[130ms] duration-150 group-hover:text-accent group-hover:delay-0 group-focus-visible:text-accent group-focus-visible:delay-0">
+        <path d="M0 10 L4 0 L14 10 Z" />
+      </svg>
+      <svg viewBox="0 0 14 10" aria-hidden="true" class="absolute -top-[9px] right-1.5 h-2.5 w-3.5 fill-current text-cat transition-colors delay-0 duration-150 group-hover:text-accent group-hover:delay-[110ms] group-focus-visible:text-accent group-focus-visible:delay-[110ms]">
+        <path d="M14 10 L10 0 L0 10 Z" />
+      </svg>
+      <span class="sweep block rounded-md bg-cat px-4 py-1.5">See CV</span>
+    </a>
   </div>
 </header>
+
+<style>
+  /* One 240px wobble, repeated. It starts and ends at the same height and slope so the
+     repeats join seamlessly, and it's anchored at the right so it meets the tail cleanly. */
+  .doodle-line::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='8' viewBox='0 0 240 8'%3E%3Cpath d='M0 4 C30 2.2 52 5.6 82 4.6 S128 2.6 158 3.8 S210 5.8 240 4' fill='none' stroke='%232b2530' stroke-width='1.6'/%3E%3C/svg%3E")
+      repeat-x right center / 240px 8px;
+    /* Pen touching down: the start of the stroke fades in (only the line, not the tail). */
+    mask-image: linear-gradient(to right, transparent, #000 40px);
+  }
+
+  /* Every few seconds the tail tip gives a small flick. */
+  .tail-curl {
+    transform-origin: 0 4px;
+    animation: flick 7s ease-in-out infinite;
+  }
+  @keyframes flick {
+    0%, 70%, 100% { transform: rotate(0); }
+    78% { transform: rotate(-9deg); }
+    86% { transform: rotate(5deg); }
+    93% { transform: rotate(-2deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tail-curl { animation: none; }
+  }
+</style>

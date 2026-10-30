@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import PubItem from '../components/PubItem.astro';
 import NewsList from '../components/NewsList.astro';
 import PathSoFar from '../components/PathSoFar.astro';
+import Cat from '../components/Cat.astro';
 import { profile } from '../content/profile';
 import { getNews, getPublications } from '../lib/data';
 import portrait from '../assets/qianhui.jpg';
@@ -13,41 +14,50 @@ const news = await getNews();
 ---
 
 <Base>
-  <section class="flex flex-wrap items-center gap-12 pt-[72px] pb-16">
-    <Image
-      src={portrait}
-      alt={`Portrait of ${profile.name}`}
-      widths={[260, 520, 780]}
-      sizes="260px"
-      loading="eager"
-      class="h-80 w-[260px] flex-none rounded-2xl object-cover object-[36%_28%]"
-    />
-    <div class="min-w-0 flex-[1_1_420px]">
-      <p class="eyebrow mb-3 text-[13px] text-accent">{profile.motto}</p>
-      <h1 class="mb-5 font-serif text-5xl leading-[1.05] tracking-[-0.01em] sm:text-[56px]">
-        {profile.headline.start} <em class="text-accent">{profile.headline.emphasis}</em>
-      </h1>
-      {profile.bio.map((p) => <p class="mb-3.5 max-w-[600px] text-lg text-body">{p}</p>)}
+  <!-- Photo beside the bio from tablet width up (smaller photo on tablets), stacked on phones. -->
+  <section class="flex flex-col gap-10 pt-20 pb-14 md:flex-row md:items-end lg:gap-13">
+    <div class="relative flex-none self-start md:self-auto">
+      <Cat pose="sit" class="absolute right-[18px] bottom-full h-[72px] w-[58px]" />
+      <Image
+        src={portrait}
+        alt={`Portrait of ${profile.name}`}
+        widths={[250, 500, 750]}
+        sizes="(min-width: 1024px) 250px, 210px"
+        loading="eager"
+        class="h-[252px] w-[210px] rounded object-cover object-[36%_28%] lg:h-[300px] lg:w-[250px]"
+      />
+    </div>
+    <div class="min-w-0 flex-1">
+      <h1 class="sr-only">{profile.name}</h1>
+      <p class="mb-3 font-heading font-medium text-accent">{profile.motto}</p>
+      {profile.bio.map((p) => <p class="mb-3.5 max-w-[640px] text-lg text-body" set:html={p} />)}
     </div>
   </section>
 
-  <div class="flex flex-wrap gap-14 border-t border-line pt-12">
+  <div class="flex flex-wrap gap-14 border-t border-line pt-10">
     <section class="min-w-0 flex-[999_1_560px]" aria-labelledby="pubs-heading">
-      <h2 id="pubs-heading" class="section-title mb-6">Publications</h2>
-      <div class="flex flex-col gap-7">
+      <div class="mb-5 flex flex-wrap items-baseline justify-between gap-3">
+        <h2 id="pubs-heading" class="section-title">Publications</h2>
+        <a
+          href="/publications/"
+          class="group sweep inline-flex items-center gap-1.5 rounded-md border-[1.5px] border-cat bg-none px-3.5 py-1.5 text-[15px] font-bold text-ink [--sweep:var(--color-cat)] transition-[color,scale] hover:text-white active:scale-95"
+        >
+          All publications
+          <span aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+      <div class="flex flex-col gap-[26px]">
         {featured.map((pub) => <PubItem pub={pub} showFigure />)}
       </div>
-      <p class="mt-7 text-[15px] font-medium"><a href="/publications/">All publications →</a></p>
     </section>
 
-    <aside class="min-w-0 flex-[1_1_260px]" aria-labelledby="news-heading">
-      <h2 id="news-heading" class="section-title mb-6">News</h2>
+    <aside class="min-w-0 flex-[1_1_260px]" aria-labelledby="news-heading" data-reveal>
       <NewsList items={news} />
     </aside>
   </div>
 
-  <section class="mt-20 border-t border-line pt-12" aria-labelledby="path-heading">
-    <h2 id="path-heading" class="section-title mb-8">Path so far</h2>
+  <section class="mt-18 border-t border-line pt-10" aria-labelledby="path-heading">
+    <h2 id="path-heading" class="section-title mb-6">Path so far</h2>
     <PathSoFar />
   </section>
 </Base>

@@ -1,0 +1,144 @@
+---
+// The little black cat that shows up around the site. Purely decorative.
+interface Props {
+  pose: 'sit' | 'walk' | 'paw';
+  class?: string;
+}
+
+const { pose, class: className } = Astro.props;
+---
+
+{pose === 'sit' && (
+  <svg viewBox="0 0 90 110" aria-hidden="true" class:list={['cat-sit text-cat overflow-visible', className]}>
+    <path class="tail" d="M64 100 C90 100 92 74 80 60" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+    <path d="M22 108 C18 80 26 62 45 60 C64 62 72 80 68 108 Z" fill="currentColor" />
+    <g class="head">
+      <path d="M20 40 L22 8 L40 24 Z M70 40 L68 8 L50 24 Z" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+      <ellipse cx="45" cy="42" rx="28" ry="23" fill="currentColor" />
+      <path d="M25 30 L25 18 L33 26 Z M65 30 L65 18 L57 26 Z" class="fill-cat-ear" />
+      <g class="eyes">
+        <ellipse cx="35" cy="42" rx="5" ry="6" class="fill-cat-eye" />
+        <ellipse cx="55" cy="42" rx="5" ry="6" class="fill-cat-eye" />
+        <g class="pupils">
+          <ellipse cx="35" cy="42" rx="1.6" ry="4.6" fill="currentColor" />
+          <ellipse cx="55" cy="42" rx="1.6" ry="4.6" fill="currentColor" />
+        </g>
+      </g>
+      <path d="M41 52 q2 3 4 0 q2 3 4 0" fill="none" stroke="#f7eef2" stroke-width="1.6" stroke-linecap="round" />
+    </g>
+  </svg>
+)}
+
+{pose === 'walk' && (
+  <svg viewBox="0 0 120 70" aria-hidden="true" class:list={['text-cat', className]}>
+    <path d="M92 30 C108 22 112 8 104 4" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="66" cy="38" rx="30" ry="15" fill="currentColor" />
+    <path d="M44 46 l-4 20 M54 48 l2 18 M78 48 l-2 18 M88 44 l4 20" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+    <path d="M18 24 L18 4 L30 14 Z M44 22 L44 4 L32 14 Z" fill="currentColor" />
+    <ellipse cx="31" cy="27" rx="17" ry="14" fill="currentColor" />
+    <ellipse cx="25" cy="27" rx="3" ry="3.6" class="fill-cat-eye" />
+    <ellipse cx="37" cy="27" rx="3" ry="3.6" class="fill-cat-eye" />
+  </svg>
+)}
+
+{pose === 'paw' && (
+  <svg viewBox="0 0 24 24" aria-hidden="true" class:list={[className?.includes('text-') ? '' : 'text-paw', className]}>
+    <ellipse cx="12" cy="16" rx="6" ry="5" fill="currentColor" />
+    <circle cx="4.8" cy="9.6" r="2.6" fill="currentColor" />
+    <circle cx="9.4" cy="5.4" r="2.6" fill="currentColor" />
+    <circle cx="14.6" cy="5.4" r="2.6" fill="currentColor" />
+    <circle cx="19.2" cy="9.6" r="2.6" fill="currentColor" />
+  </svg>
+)}
+
+<style>
+  /* The sitting cat sways its tail, looks around and blinks.
+     Different loop lengths keep it from looking mechanical. */
+  .tail,
+  .head,
+  .eyes {
+    transform-box: view-box;
+  }
+  .tail {
+    transform-origin: 64px 100px; /* where the tail meets the body */
+    animation: sway 3.2s ease-in-out infinite;
+  }
+  .head {
+    transform-origin: 45px 62px; /* the neck */
+    animation: tilt 9s ease-in-out infinite;
+  }
+  .pupils {
+    animation: look 9s ease-in-out infinite;
+  }
+  .eyes {
+    transform-origin: 45px 42px;
+    animation: blink 5.3s infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(6deg); }
+    50% { transform: rotate(-12deg); }
+  }
+  @keyframes look {
+    0%, 30%, 80%, 100% { transform: translateX(0); }
+    36%, 50% { transform: translateX(-2.6px); }
+    58%, 72% { transform: translateX(2.6px); }
+  }
+  @keyframes tilt {
+    0%, 30%, 80%, 100% { transform: rotate(0); }
+    36%, 50% { transform: rotate(-6deg); }
+    58%, 72% { transform: rotate(5deg); }
+  }
+  @keyframes blink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+  }
+
+  /* While the visitor moves the pointer, the cat watches it instead (see script). */
+  .following .pupils {
+    animation: none;
+    transform: translate(var(--look-x, 0), var(--look-y, 0));
+    transition: transform 0.12s ease-out;
+  }
+  .following .head {
+    animation: none;
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform 0.3s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tail, .head, .pupils, .eyes { animation: none; }
+  }
+</style>
+
+<script>
+  // The sitting cat's eyes follow the mouse; after a few still seconds it goes back
+  // to looking around on its own. Skipped on touch screens and for reduced motion.
+  const cats = document.querySelectorAll<SVGSVGElement>('.cat-sit');
+  if (cats.length && matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let frame = 0;
+    let idle: ReturnType<typeof setTimeout>;
+    addEventListener(
+      'pointermove',
+      (event) => {
+        clearTimeout(idle);
+        idle = setTimeout(() => cats.forEach((cat) => cat.classList.remove('following')), 2500);
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          for (const cat of cats) {
+            const box = cat.getBoundingClientRect();
+            const dx = event.clientX - (box.left + box.width / 2);
+            const dy = event.clientY - (box.top + box.height * 0.38); // eye level
+            const distance = Math.hypot(dx, dy) || 1;
+            cat.style.setProperty('--look-x', `${(dx / distance) * 2.6}px`);
+            cat.style.setProperty('--look-y', `${(dy / distance) * 1.2}px`);
+            cat.style.setProperty('--tilt', `${Math.max(-6, Math.min(6, dx / 60))}deg`);
+            cat.classList.add('following');
+          }
+        });
+      },
+      { passive: true },
+    );
+  }
+</script>

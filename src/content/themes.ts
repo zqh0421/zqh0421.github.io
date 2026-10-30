@@ -2,7 +2,7 @@
 // Keep these in sync with the theme list in studio/schemas/publication.ts.
 export const themes = [
   'AI for Education',
-  'Human-AI Collaboration',
+  'Human-AI Interaction',
   'Intelligent User Interfaces',
 ] as const;
 

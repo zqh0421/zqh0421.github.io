@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
   site: 'https://zqh0421.github.io',
-  integrations: [sitemap()],
+  integrations: [sitemap({ lastmod: new Date() })],
   // Old v2 pages, so existing links still land somewhere useful.
   redirects: {
     '/about': '/',

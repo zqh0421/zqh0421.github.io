@@ -3,37 +3,94 @@ import { formatMonth } from '../lib/data';
 import type { NewsItem } from '../lib/types';
 
 interface Props {
-  items: NewsItem[];
-  visible?: number; // how many to show before "Older news"
+  items: NewsItem[]; // newest first
 }
 
-const { items, visible = 5 } = Astro.props;
-const recent = items.slice(0, visible);
-const older = items.slice(visible);
+const { items } = Astro.props;
+const years = [...new Set(items.map((item) => item.date.slice(0, 4)))];
 ---
 
-<ul class="flex flex-col gap-[18px] text-[15px]">
-  {recent.map((item) => (
-    <li>
-      <p class="eyebrow text-accent">{formatMonth(item.date)}</p>
-      <p class="mt-0.5">{item.url ? <a href={item.url}>{item.text}</a> : item.text}</p>
-    </li>
-  ))}
-</ul>
+<div class="mb-5 flex flex-wrap items-baseline justify-between gap-3">
+  <h2 id="news-heading" class="section-title">News</h2>
+  <!-- Shown by the script below; without JavaScript every year is listed. -->
+  <div id="news-tabs" role="tablist" aria-label="News by year" class="relative hidden gap-3.5 text-[15px] font-bold">
+    {years.map((year, i) => (
+      <button
+        type="button"
+        role="tab"
+        id={`news-tab-${year}`}
+        aria-controls={`news-${year}`}
+        aria-selected={i === 0 ? 'true' : 'false'}
+        tabindex={i === 0 ? 0 : -1}
+        class="cursor-pointer py-1 text-faint transition-colors hover:text-ink aria-selected:text-ink"
+      >
+        {year}
+      </button>
+    ))}
+    <!-- Underline with cat ears; the script slides it to the selected year. -->
+    <span id="news-marker" aria-hidden="true" class="pointer-events-none absolute inset-y-0 left-0 border-b-2 border-cat">
+      <svg viewBox="0 0 26 8" class="absolute -top-1 left-1/2 h-2 w-[26px] -translate-x-1/2 fill-cat">
+        <path d="M1 8 L4 0 L10 8 Z M25 8 L22 0 L16 8 Z" />
+      </svg>
+    </span>
+  </div>
+</div>
 
-{older.length > 0 && (
-  <details class="group mt-5">
-    <summary class="cursor-pointer list-none text-sm font-medium text-accent hover:underline">
-      <span class="group-open:hidden">Older news ({older.length}) →</span>
-      <span class="hidden group-open:inline">Hide older news</span>
-    </summary>
-    <ul class="mt-4 flex flex-col gap-[18px] text-[15px]">
-      {older.map((item) => (
-        <li>
-          <p class="eyebrow text-faint">{formatMonth(item.date)}</p>
-          <p class="mt-0.5 text-body">{item.url ? <a href={item.url}>{item.text}</a> : item.text}</p>
-        </li>
-      ))}
-    </ul>
-  </details>
-)}
+{years.map((year) => (
+  <ul id={`news-${year}`} role="tabpanel" aria-labelledby={`news-tab-${year}`} class="mb-4 flex flex-col gap-4 text-[15px] motion-safe:animate-fade-up" data-news-year>
+    {items.filter((item) => item.date.startsWith(year)).map((item) => (
+      <li>
+        <p class="font-bold text-accent">{formatMonth(item.date)}</p>
+        <p>{item.url ? <a href={item.url}>{item.text}</a> : item.text}</p>
+      </li>
+    ))}
+  </ul>
+))}
+
+<script>
+  const tabs = document.getElementById('news-tabs');
+  if (tabs) {
+    tabs.classList.replace('hidden', 'flex');
+    const buttons = [...tabs.querySelectorAll<HTMLButtonElement>('button')];
+    const marker = document.getElementById('news-marker')!;
+    let current = buttons[0];
+
+    // Move the underline under the selected year (it animates once the page has settled).
+    const placeMarker = () => {
+      marker.style.transform = `translateX(${current.offsetLeft}px)`;
+      marker.style.width = `${current.offsetWidth}px`;
+    };
+
+    // Shown panels fade up on their own (the panel's animate class replays when it is un-hidden).
+    const select = (button: HTMLButtonElement) => {
+      current = button;
+      buttons.forEach((b) => {
+        const on = b === button;
+        b.setAttribute('aria-selected', String(on));
+        b.tabIndex = on ? 0 : -1;
+        document.getElementById(b.getAttribute('aria-controls')!)!.hidden = !on;
+      });
+      placeMarker();
+    };
+    select(buttons[0]);
+    document.fonts.ready.then(() => {
+      placeMarker();
+      requestAnimationFrame(() => marker.classList.add('motion-safe:transition-all', 'duration-300', 'ease-out-soft'));
+    });
+    addEventListener('resize', placeMarker);
+
+    tabs.addEventListener('click', (event) => {
+      const button = (event.target as HTMLElement).closest('button');
+      if (button) select(button);
+    });
+
+    // Left/right arrow keys move between years, as screen-reader users expect from tabs.
+    tabs.addEventListener('keydown', (event) => {
+      const step = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      const next = buttons[(buttons.indexOf(document.activeElement as HTMLButtonElement) + step + buttons.length) % buttons.length];
+      select(next);
+      next.focus();
+    });
+  }
+</script>

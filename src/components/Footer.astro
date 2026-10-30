@@ -1,10 +1,73 @@
 ---
 import { profile } from '../content/profile';
+import Cat from './Cat.astro';
+
+// The site is rebuilt on every deploy, so the build date is the last-updated date.
+// Dates are in Seattle time, since GitHub builds the site on a UTC clock.
+const now = new Date();
+const timeZone = 'America/Los_Angeles';
+const updated = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone });
+const updatedIso = now.toLocaleDateString('en-CA', { timeZone }); // YYYY-MM-DD
 ---
 
 <footer class="mx-auto mt-24 w-full max-w-[1100px] px-6 pb-10">
-  <div class="flex flex-wrap justify-between gap-3 border-t border-line pt-6 text-[13px] text-muted">
-    <span>© {new Date().getFullYear()} {profile.name}</span>
-    <span>{profile.location}</span>
+  <div class="relative flex flex-wrap justify-between gap-3 border-t-[1.5px] border-cat pt-4 text-sm text-muted">
+    <!-- The cat walks in from the right when the footer scrolls into view, leaving paw prints. -->
+    <div id="footer-cat" class="absolute right-6 bottom-full flex items-end gap-2.5 sm:right-28">
+      <Cat pose="walk" class="cat-walker h-[41px] w-[70px]" />
+      <Cat pose="paw" class="paw-print mb-1 size-3" />
+      <Cat pose="paw" class="paw-print mb-1 size-3" />
+      <Cat pose="paw" class="paw-print mb-1 size-3" />
+    </div>
+    <span>© {now.getFullYear()} {profile.name}</span>
+    <span>Last updated <time datetime={updatedIso}>{updated}</time></span>
   </div>
 </footer>
+
+<script>
+  const walk = document.getElementById('footer-cat');
+  if (walk && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    walk.classList.add('walk-ready');
+    new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        walk.classList.add('walk-go');
+        observer.disconnect();
+      }
+    }).observe(walk);
+  }
+</script>
+
+<style>
+  /* Before the walk: cat waits off to the right and no paw prints yet. */
+  .walk-ready :global(.cat-walker) {
+    transform: translateX(78px);
+  }
+  .walk-ready :global(.paw-print) {
+    opacity: 0;
+  }
+
+  .walk-go :global(.cat-walker) {
+    animation:
+      walk-in 2.2s ease-out forwards,
+      step 0.28s ease-in-out 8;
+  }
+  /* Prints appear right to left as the cat passes them. */
+  .walk-go :global(.paw-print) {
+    animation: print-in 0.3s ease-out forwards;
+  }
+  .walk-go :global(.paw-print:nth-child(4)) { animation-delay: 0.35s; }
+  .walk-go :global(.paw-print:nth-child(3)) { animation-delay: 0.9s; }
+  .walk-go :global(.paw-print:nth-child(2)) { animation-delay: 1.45s; }
+
+  @keyframes walk-in {
+    from { transform: translateX(78px); }
+    to { transform: translateX(0); }
+  }
+  @keyframes step {
+    50% { translate: 0 -1.5px; }
+  }
+  @keyframes print-in {
+    from { opacity: 0; scale: 0.6; }
+    to { opacity: 1; scale: 1; }
+  }
+</style>

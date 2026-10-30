@@ -17,7 +17,7 @@ pnpm build       # production build into dist/ (what gets deployed)
 
 | To change…                                   | Edit                                   |
 | -------------------------------------------- | -------------------------------------- |
-| Bio, headline, links, CV link, Path so far   | `src/content/profile.ts`               |
+| Bio, search description, links, CV, Path so far | `src/content/profile.ts`               |
 | Research themes (tags + filters)             | `src/content/themes.ts`                |
 | Publications and news                        | `src/lib/local-data.ts` (moving to Sanity) |
 | Colors and fonts                             | `src/styles/global.css` (`@theme` block) |

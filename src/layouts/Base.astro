@@ -1,24 +1,44 @@
 ---
+import { getImage } from 'astro:assets';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { profile } from '../content/profile';
+import { themes } from '../content/themes';
+import portrait from '../assets/qianhui.jpg';
 
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean; // keep a page out of search results (e.g. 404)
+  schema?: object; // extra structured data for this page
 }
 
-const { title, description = profile.description } = Astro.props;
-const pageTitle = title ? `${title} — ${profile.name}` : profile.name;
+const { title, description = profile.description, noindex = false, schema } = Astro.props;
+const pageTitle = title ? `${title} · ${profile.name}` : `${profile.name} · ${profile.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
+// Link-preview image (LinkedIn, Slack, X…): the portrait cropped to the standard 1200×630.
+const ogImage = await getImage({ src: portrait, width: 1200, height: 630, fit: 'cover', position: 'center', format: 'jpg' });
+const ogImageUrl = new URL(ogImage.src, Astro.site).toString();
+
+// Tells search engines who this site is about. https://schema.org/Person
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': new URL('/#person', Astro.site).toString(),
   name: profile.name,
+  alternateName: profile.authorNames.filter((n) => n !== profile.name),
   jobTitle: 'PhD Student',
-  affiliation: { '@type': 'CollegeOrUniversity', name: 'University of Washington' },
+  description: profile.description,
+  image: ogImageUrl,
+  email: profile.links.find((l) => l.url.startsWith('mailto:'))?.url,
+  affiliation: { '@type': 'CollegeOrUniversity', name: 'University of Washington', url: 'https://www.washington.edu/' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Carnegie Mellon University' },
+    { '@type': 'CollegeOrUniversity', name: 'Beijing University of Chemical Technology' },
+  ],
+  knowsAbout: themes,
   url: Astro.site?.toString(),
   sameAs: profile.links.filter((l) => l.url.startsWith('http')).map((l) => l.url),
 };
@@ -31,23 +51,34 @@ const personSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#fbfaf7" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`Portrait of ${profile.name}`} />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap"
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
     <!-- Google Analytics (same property as the v2 site) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-S1Z9R2KPMR"></script>
@@ -64,5 +95,34 @@ const personSchema = {
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Scroll reveal: items marked data-reveal that start below the screen fade up once
+      // as they come into view. Anything already on screen is left alone, and nothing is
+      // hidden when JavaScript is off or the visitor prefers reduced motion.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const items = [...document.querySelectorAll<HTMLElement>('[data-reveal]')].filter(
+          (el) => el.getBoundingClientRect().top > innerHeight,
+        );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            let order = 0;
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const el = entry.target as HTMLElement;
+              el.style.setProperty('--reveal-delay', `${order++ * 70}ms`); // small stagger
+              el.classList.add('reveal-in');
+              el.classList.remove('reveal-pending');
+              observer.unobserve(el);
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px' },
+        );
+        for (const el of items) {
+          el.classList.add('reveal-pending');
+          observer.observe(el);
+        }
+      }
+    </script>
   </body>
 </html>

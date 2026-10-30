@@ -4,9 +4,9 @@ import { path } from '../content/profile';
 
 <ol class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
   {path.map((step, i) => (
-    <li class:list={['border-t-2 pt-4', i === 0 ? 'border-accent' : 'border-line-strong']}>
-      <p class:list={['eyebrow mb-1.5', i === 0 ? 'text-accent' : 'text-faint']}>{step.years}</p>
-      <p class="mb-0.5 font-semibold">{step.place}</p>
+    <li data-reveal>
+      <p class:list={['font-bold', i === 0 ? 'text-accent' : 'text-faint']}>{step.years}</p>
+      <p class="font-bold">{step.place}</p>
       <p class="text-[15px] text-muted">{step.role}</p>
     </li>
   ))}
