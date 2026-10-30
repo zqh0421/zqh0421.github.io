@@ -14,10 +14,10 @@ const news = await getNews();
 ---
 
 <Base>
-  <!-- Photo beside the bio from tablet width up (smaller photo on tablets), stacked on phones. -->
+  <!-- Photo beside the bio from tablet width up (smaller photo on tablets), stacked and centered on phones. -->
   <section class="flex flex-col gap-10 pt-20 pb-14 md:flex-row md:items-end lg:gap-13">
-    <div class="relative flex-none self-start md:self-auto">
-      <Cat pose="sit" class="absolute right-[18px] bottom-full h-[72px] w-[58px]" />
+    <div class="relative flex-none self-center md:self-auto">
+      <Cat pose="sit" class="absolute right-[18px] bottom-[calc(100%-3px)] h-[72px] w-[58px]" />
       <Image
         src={portrait}
         alt={`Portrait of ${profile.name}`}

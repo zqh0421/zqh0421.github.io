@@ -44,19 +44,18 @@ const schema = {
     </p>
 
     <!-- Shown by the script below; without JavaScript every paper is listed. -->
-    <!-- On phones the filters sit in one row that scrolls sideways instead of wrapping. -->
     <div
       id="theme-filters"
       role="group"
       aria-label="Filter by research theme"
-      class="-mx-6 mb-10 hidden gap-x-5 overflow-x-auto px-6 text-[15px] font-bold whitespace-nowrap [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:px-0 sm:whitespace-normal"
+      class="mb-10 hidden flex-wrap gap-x-5 gap-y-1 text-[15px] font-bold"
     >
       {filters.map((f, i) => (
         <button
           type="button"
           data-theme={f.value}
           aria-pressed={i === 0 ? 'true' : 'false'}
-          class="cursor-pointer border-b-2 border-transparent py-1 text-faint transition-colors hover:text-ink aria-pressed:border-cat aria-pressed:text-ink"
+          class="cursor-pointer border-b-2 border-transparent py-1 whitespace-nowrap text-faint tab-hover hover:text-ink aria-pressed:border-cat aria-pressed:text-ink"
         >
           {f.label} · {f.count}
         </button>

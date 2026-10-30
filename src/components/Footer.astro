@@ -1,5 +1,4 @@
 ---
-import { profile } from '../content/profile';
 import Cat from './Cat.astro';
 
 // The site is rebuilt on every deploy, so the build date is the last-updated date.
@@ -19,7 +18,7 @@ const updatedIso = now.toLocaleDateString('en-CA', { timeZone }); // YYYY-MM-DD
       <Cat pose="paw" class="paw-print mb-1 size-3" />
       <Cat pose="paw" class="paw-print mb-1 size-3" />
     </div>
-    <span>© {now.getFullYear()} {profile.name}</span>
+    <span class="inline-flex items-center gap-1.5">Thanks for visiting, see you around <Cat pose="paw" class="size-3.5 text-current" /></span>
     <span>Last updated <time datetime={updatedIso}>{updated}</time></span>
   </div>
 </footer>

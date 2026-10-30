@@ -109,3 +109,14 @@
 @utility section-title {
   @apply font-heading text-[28px] leading-tight font-bold;
 }
+
+/* Tabs (news years, publication filters): on hover a light line slides in from the
+   left, like the link underline, at the selected marker's 2px weight. */
+@utility tab-hover {
+  background: linear-gradient(var(--color-paw), var(--color-paw)) no-repeat 0 100% / 0 2px;
+  background-origin: border-box;
+  transition: background-size 0.25s var(--ease-out-soft), color 0.15s;
+  &:is(:hover, :focus-visible):not([aria-selected="true"], [aria-pressed="true"]) {
+    background-size: 100% 2px;
+  }
+}

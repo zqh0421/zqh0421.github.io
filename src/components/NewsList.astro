@@ -22,7 +22,7 @@ const years = [...new Set(items.map((item) => item.date.slice(0, 4)))];
         aria-controls={`news-${year}`}
         aria-selected={i === 0 ? 'true' : 'false'}
         tabindex={i === 0 ? 0 : -1}
-        class="cursor-pointer py-1 text-faint transition-colors hover:text-ink aria-selected:text-ink"
+        class="cursor-pointer py-1 text-faint tab-hover hover:text-ink aria-selected:text-ink"
       >
         {year}
       </button>
