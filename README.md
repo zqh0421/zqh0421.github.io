@@ -30,4 +30,8 @@ On the homepage, only publications with `featured: true` are shown; the Publicat
 ## Deploying
 
 `.github/workflows/deploy.yml` builds the site and publishes `dist/` to the `gh-pages` branch, which GitHub Pages serves.
-It currently runs only when started by hand from the Actions tab.
+
+- **Every push to `v3` goes live** in about a minute. Watch progress in the repo's **Actions** tab.
+- To redeploy without changing code: Actions → "Deploy site (v3)" → **Run workflow** (shows up once `v3` is the default branch).
+- Don't push to `v2` anymore: its old workflow would overwrite the live site with the old version.
+- To roll back to the old site: Actions → pick the last successful v2 "Build and Deploy" run → **Re-run all jobs**.

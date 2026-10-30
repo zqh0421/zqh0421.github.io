@@ -1,11 +1,19 @@
-name: Build and Deploy
+name: Deploy site (v3)
 
-# For now this only runs when started by hand (Actions tab → "Run workflow"),
-# so pushing this branch never replaces the live site by accident.
-# Step 3 adds a trigger from Sanity; step 4 adds a push trigger for the live branch.
+# Builds the site and publishes it to the gh-pages branch, which GitHub Pages serves.
+# Runs on every push to v3, or by hand from the Actions tab ("Run workflow").
+# Step 3 adds a trigger from Sanity so editing publications/news also redeploys.
 on:
+  push:
+    branches:
+      - v3
   workflow_dispatch:
 
+# Lets the built-in GITHUB_TOKEN push to the gh-pages branch (no personal token to expire).
+permissions:
+  contents: write
+
+# If two deploys start close together, only the newest one finishes.
 concurrency:
   group: deploy
   cancel-in-progress: true
@@ -35,5 +43,5 @@ jobs:
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
